@@ -8,6 +8,8 @@ import {
   CONTENT_NOT_FOUND,
   DOWNLOAD_INVALID,
 } from "../constants/error-messages";
+import { sendToGroup } from "../helpers/api/send-group-notification-message";
+import { Content } from "../interfaces/content.interface";
 
 export async function handleLinkSharing(ctx: Context) {
   const processingMessage = await ctx.reply(PROCESSING);
@@ -18,7 +20,9 @@ export async function handleLinkSharing(ctx: Context) {
   }
 
   const rapidapi = new RapidapiService();
-  const downloadLink = await rapidapi.getDownloadLink(linkToDownload);
+  const { downloadLink, filename } = await rapidapi.getDownloadLink(
+    linkToDownload
+  );
 
   if (!downloadLink) {
     return ctx.reply(CONTENT_NOT_FOUND);
@@ -32,5 +36,8 @@ export async function handleLinkSharing(ctx: Context) {
     message,
     { parse_mode: "HTML" }
   );
+
+  const content: Content = { pageLink: linkToDownload, downloadLink, filename };
+  await sendToGroup(content, message);
   return;
 }
