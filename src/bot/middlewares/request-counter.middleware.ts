@@ -17,12 +17,12 @@ export async function trackRequest(ctx: MyContext, next: NextFunction) {
       user.lastResetDate = today;
     }
 
-    const userPlan = await UserPlan.findOne({
+    const userPlans = await UserPlan.find({
       userId: user._id,
       status: "active",
     }).populate("planId");
 
-    if (!userPlan) {
+    if (!userPlans) {
       await ctx.reply(
         "You don't have an active plan. Please purchase a plan to use this feature.",
         {
@@ -36,7 +36,7 @@ export async function trackRequest(ctx: MyContext, next: NextFunction) {
       return;
     }
 
-    const plan = userPlan.planId as unknown as IPlan;
+    const plan = userPlans[userPlans.length - 1].planId as unknown as IPlan;
     if (user.dailyRequestsCount >= plan.dailyRequestCount) {
       await ctx.reply(
         "You have reached your daily request limit. Please try again tomorrow or upgrade your plan."

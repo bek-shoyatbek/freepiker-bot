@@ -15,6 +15,7 @@ import { aboutHandler } from "./handlers/hears/about";
 import { selectPlanHandler } from "./handlers/callbacks/select-plan";
 import { cancelPurchaseHandler } from "./handlers/callbacks/cancel-purchase";
 import { confirmPurchaseHandler } from "./handlers/callbacks/confirm-purchase";
+import { trackRequest } from "./middlewares/request-counter.middleware";
 
 const botToken = verifyToken(configs.BOT_TOKEN);
 
@@ -59,6 +60,6 @@ bot.callbackQuery(/approve_(.+)/, paymentApprovalHandler);
 
 bot.callbackQuery(/reject_(.+)/, paymentRejectionHandler);
 
-bot.on("::url", getContentByLinkHandler);
+bot.on("::url", trackRequest, getContentByLinkHandler);
 
 export default bot;
