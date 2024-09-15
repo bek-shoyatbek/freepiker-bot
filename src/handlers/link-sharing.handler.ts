@@ -8,7 +8,7 @@ import {
   CONTENT_NOT_FOUND,
   DOWNLOAD_INVALID,
 } from "../constants/error-messages";
-import { sendToGroup } from "../helpers/api/send-group-notification-message";
+import { sendGroupNotificationMessage } from "../helpers/api/send-group-notification-message";
 import { Content } from "../interfaces/content.interface";
 
 export async function handleLinkSharing(ctx: Context) {
@@ -38,6 +38,6 @@ export async function handleLinkSharing(ctx: Context) {
   );
 
   const content: Content = { pageLink: linkToDownload, downloadLink, filename };
-  await sendToGroup(content, message);
+  await sendGroupNotificationMessage(content, message);
   return;
 }
