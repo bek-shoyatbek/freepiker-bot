@@ -1,0 +1,27 @@
+{
+  "name": "freepiker-bot",
+  "version": "1.0.0",
+  "description": "With the help of freepiker-bot you can easily pick what you want from freepik.com",
+  "main": "server.ts",
+  "scripts": {
+    "start": "node dist/main.js",
+    "dev": "nodemon src/main.ts",
+    "build": "tsc",
+    "test": "jest"
+  },
+  "keywords": [
+    "freepik"
+  ],
+  "author": "bek shoyatbek",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^22.5.5",
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
+    "grammy": "^1.30.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4",
+    "ts-node": "^10.9.2"
+  }
+}
