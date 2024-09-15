@@ -1,17 +1,17 @@
 import { Context } from "grammy";
-import { RapidapiService } from "../downloaders/rapidapi/rapidapi.service";
+import { RapidapiService } from "../../../downloaders/rapidapi/rapidapi.service";
 import {
   generateDownloadLinkMessage,
   PROCESSING,
-} from "../constants/reply-messages";
+} from "../../constants/reply-messages";
 import {
   CONTENT_NOT_FOUND,
   DOWNLOAD_INVALID,
-} from "../constants/error-messages";
-import { sendGroupNotificationMessage } from "../helpers/api/send-group-notification-message";
-import { Content } from "../interfaces/content.interface";
+} from "../../constants/error-messages";
+import { sendGroupNotificationMessage } from "../../helpers/api/send-group-notification-message";
+import { Content } from "../../interfaces/content.interface";
 
-export async function handleLinkSharing(ctx: Context) {
+export async function getContentByLinkHandler(ctx: Context) {
   const processingMessage = await ctx.reply(PROCESSING);
 
   const linkToDownload = ctx.message?.text;

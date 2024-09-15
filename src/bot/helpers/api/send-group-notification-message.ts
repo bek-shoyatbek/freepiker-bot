@@ -1,8 +1,7 @@
-import configs from "../../configs";
+import configs from "../../../configs";
 import { generateGroupNotificationMessage } from "../../constants/group.messages";
 import { Content } from "../../interfaces/content.interface";
-import bot from "../../main";
-
+import bot from "../..";
 export async function sendGroupNotificationMessage(
   content: Content,
   message: string

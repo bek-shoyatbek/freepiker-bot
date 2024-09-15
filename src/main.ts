@@ -1,32 +1,29 @@
-import { Bot, session } from "grammy";
-import configs from "./configs";
-import { verifyToken } from "./helpers/validators/verify-token";
-import { handleLinkSharing } from "./handlers/link-sharing.handler";
-import { MyContext } from "./types/context";
-import { initialSession } from "./helpers/sessions";
-import { handleStart } from "./handlers/start.handler";
+import { GrammyError, HttpError } from "grammy";
+import bot from "./bot";
+import { connectDB } from "./utils/database";
 
-const botToken = verifyToken(configs.BOT_TOKEN);
+async function main() {
+  try {
+    await connectDB();
+    await bot.start();
 
-const bot = new Bot<MyContext>(botToken);
+    bot.catch((err) => {
+      const ctx = err.ctx;
+      console.error(`Error while handling update ${ctx.update.update_id}:`);
+      const e = err.error;
+      if (e instanceof GrammyError) {
+        console.error("Error in request:", e.description);
+      } else if (e instanceof HttpError) {
+        console.error("Could not contact Telegram:", e);
+      } else {
+        console.error("Unknown error:", e);
+      }
+    });
+  } catch (err) {
+    console.error("StartupError: ", err);
+  }
+}
 
-bot.use(session({ initial: initialSession }));
-
-// Command handler for /start
-bot.command("start", handleStart);
-
-// Command handler for /subscribe
-bot.command("subscribe", async (ctx) => {
-  // Here you would implement the subscription logic
-  // For now, we'll just set the subscribed status to true
-  ctx.session.subscribed = true;
-  await ctx.reply(
-    "You've successfully subscribed to the premium content service!"
-  );
-});
-
-bot.on("::url", handleLinkSharing);
-
-bot.start();
-
-export default bot;
+(async () => {
+  await main();
+})();

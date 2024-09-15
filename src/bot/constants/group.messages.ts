@@ -1,4 +1,4 @@
-import configs from "../configs";
+import configs from "../../configs";
 import { Content } from "../interfaces/content.interface";
 
 export function generateGroupNotificationMessage(
@@ -6,9 +6,9 @@ export function generateGroupNotificationMessage(
   message: string
 ) {
   const fullText = `
-     Page link: <a> href=${content.pageLink}</a>
+     Page link: <a href="${content.pageLink}">Link</a>
      ${message}
-     ${generateSearchParamsFromFilename(content.filename)}
+${generateSearchParamsFromFilename(content.filename)}
      
 Our bot: ${configs.BOT_USERNAME}
 Our free content: ${configs.GROUP_USERNAME}
