@@ -1,24 +1,28 @@
-import { GrammyError, HttpError } from "grammy";
 import bot from "./bot";
 import { connectDB } from "./utils/database";
 
 async function main() {
   try {
     await connectDB();
-    await bot.start();
 
-    bot.catch((err) => {
-      const ctx = err.ctx;
-      console.error(`Error while handling update ${ctx.update.update_id}:`);
-      const e = err.error;
-      if (e instanceof GrammyError) {
-        console.error("Error in request:", e.description);
-      } else if (e instanceof HttpError) {
-        console.error("Could not contact Telegram:", e);
-      } else {
-        console.error("Unknown error:", e);
-      }
+    await bot.api.setMyCommands([
+      { command: "/start", description: "Start bot" },
+      { command: "/stop", description: "Stop bot" },
+    ]);
+
+    const botInfo = await bot.api.getMe();
+    console.log(`Bot info: ${botInfo.first_name} (@${botInfo.username})`);
+
+    await bot.start({
+      onStart: (botInfo) => {
+        console.log(`Bot @${botInfo.username} started!`);
+      },
+      allowed_updates: ["message", "callback_query"],
+      drop_pending_updates: true,
     });
+
+    console.log("Bot started!");
+    await bot.start();
   } catch (err) {
     console.error("StartupError: ", err);
   }
