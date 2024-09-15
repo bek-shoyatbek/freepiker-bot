@@ -1,4 +1,4 @@
-import configs from "../configs";
+import configs from "../../../configs";
 
 export function generateRequestOptions(url: string): object {
   const options = {

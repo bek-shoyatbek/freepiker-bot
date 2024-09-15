@@ -1,29 +1,36 @@
-import { Context, InputFile } from "grammy";
+import { Context } from "grammy";
 import { RapidapiService } from "../downloaders/rapidapi/rapidapi.service";
-import fs from "fs";
-import path from "path";
+import {
+  generateDownloadLinkMessage,
+  PROCESSING,
+} from "../constants/reply-messages";
+import {
+  CONTENT_NOT_FOUND,
+  DOWNLOAD_INVALID,
+} from "../constants/error-messages";
 
 export async function handleLinkSharing(ctx: Context) {
-  const downloadUrl = ctx.message?.text;
-  if (!downloadUrl) {
-    return ctx.reply("Download url is not valid or provided!");
+  const processingMessage = await ctx.reply(PROCESSING);
+
+  const linkToDownload = ctx.message?.text;
+  if (!linkToDownload) {
+    return ctx.reply(DOWNLOAD_INVALID);
   }
+
   const rapidapi = new RapidapiService();
-  const filePath = await rapidapi.download(downloadUrl);
-  if (!filePath) {
-    return ctx.reply("Sorry we can't find .zip file for this content :(");
+  const downloadLink = await rapidapi.getDownloadLink(linkToDownload);
+
+  if (!downloadLink) {
+    return ctx.reply(CONTENT_NOT_FOUND);
   }
 
-  // Read the file into a buffer
-  const fileBuffer = fs.readFileSync(filePath);
+  const message = generateDownloadLinkMessage(downloadLink);
 
-  // Get the file name
-  const fileName = path.basename(filePath);
-
-  // Send the file using InputFile
-  await ctx.replyWithDocument(new InputFile(fileBuffer, fileName));
-
-  // Delete the file after sending
-  fs.unlinkSync(filePath);
+  await ctx.api.editMessageText(
+    processingMessage.chat.id,
+    processingMessage.message_id,
+    message,
+    { parse_mode: "HTML" }
+  );
   return;
 }

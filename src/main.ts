@@ -1,34 +1,20 @@
-import { Bot, Context, session, SessionFlavor } from "grammy";
+import { Bot, session } from "grammy";
 import configs from "./configs";
 import { verifyToken } from "./helpers/verify-token";
 import { handleLinkSharing } from "./handlers/link-sharing.handler";
+import { MyContext } from "./types/context";
+import { initialSession } from "./helpers/sessions";
+import { handleStart } from "./handlers/start.handler";
 
 function main(): void {
   const botToken = verifyToken(configs.BOT_TOKEN);
 
-  // Define the structure for the session data
-  interface SessionData {
-    subscribed: boolean;
-    // Add more session data as needed
-  }
-
-  type MyContext = Context & SessionFlavor<SessionData>;
-
-  // Set up the session middleware
-  function initial(): SessionData {
-    return { subscribed: false };
-  }
-
   const bot = new Bot<MyContext>(botToken);
 
-  bot.use(session({ initial }));
+  bot.use(session({ initial: initialSession }));
 
   // Command handler for /start
-  bot.command("start", async (ctx) => {
-    await ctx.reply(
-      "Welcome to the Freepik Premium Content Bot! Use /subscribe to get started."
-    );
-  });
+  bot.command("start", handleStart);
 
   // Command handler for /subscribe
   bot.command("subscribe", async (ctx) => {
