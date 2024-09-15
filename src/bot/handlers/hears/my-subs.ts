@@ -10,20 +10,22 @@ export const mySubsHandler = async (ctx: MyContext) => {
     return ctx.reply("User not found. Please use /start to register.");
   }
 
-  const userPlan = await UserPlan.findOne({
+  const userPlan = await UserPlan.find({
     userId: user._id,
     status: "active",
   }).populate("planId");
+
   if (!userPlan) {
     return ctx.reply(
       'You don\'t have an active subscription. Use "📊 View Plans" to subscribe.'
     );
   }
 
-  const plan = userPlan.planId as unknown as IPlan;
+
+  const plan = userPlan[userPlan.length - 1].planId as unknown as IPlan;
   await ctx.reply(
     `Your current plan: ${plan.title}\n` +
       `Daily requests: ${user.dailyRequestsCount}/${plan.dailyRequestCount}\n` +
-      `Expires on: ${userPlan.endDate.toDateString()}`
+      `Expires on: ${userPlan[userPlan.length - 1].endDate.toDateString()}`
   );
 };
