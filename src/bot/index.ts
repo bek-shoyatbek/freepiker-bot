@@ -1,4 +1,4 @@
-import { Bot, GrammyError, HttpError, session } from "grammy";
+import { Bot, GrammyError, HttpError, MiddlewareFn, session } from "grammy";
 import { verifyToken } from "./helpers/validators/verify-token";
 import { getContentByLinkHandler } from "./handlers/contents/get-content";
 import { initialSession } from "./helpers/sessions";
@@ -16,6 +16,7 @@ import { selectPlanHandler } from "./handlers/callbacks/select-plan";
 import { cancelPurchaseHandler } from "./handlers/callbacks/cancel-purchase";
 import { confirmPurchaseHandler } from "./handlers/callbacks/confirm-purchase";
 import { trackRequest } from "./middlewares/request-counter.middleware";
+import { conversations } from "@grammyjs/conversations";
 
 const botToken = verifyToken(configs.BOT_TOKEN);
 
@@ -36,6 +37,8 @@ bot.catch((err) => {
 });
 
 bot.use(session({ initial: initialSession }));
+
+bot.use(conversations());
 
 // Command handler for /start
 bot.command("start", handleStart);

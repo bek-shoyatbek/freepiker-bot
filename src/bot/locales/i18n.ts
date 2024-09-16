@@ -1,0 +1,126 @@
+export const i18n = {
+  uz: {
+    welcome: "Xush kelibsiz! Ro'yxatdan muvaffaqiyatli o'tdingiz. ✅",
+    chooseOption: "Iltimos, birini tanlang:",
+    viewTariffs: "📊 Tarif Rejalarini Ko'rish",
+    mySubscription: "📜 Mening Obunam",
+    help: "☎️ Yordam",
+    aboutUs: "ℹ️ Biz haqimizda",
+    chooseTariff: "Tarifni tanlang: 📦",
+    basic: {
+      name: "Basic",
+      price: "19 000 so'm / oy",
+      description: "🔹 Har kuni 5 ta fayl yuklab olish imkoniyati.",
+    },
+    standard: {
+      name: "Standart",
+      price: "29 000 so'm / oy",
+      description: "🔹 Har kuni 10 ta fayl yuklab olish imkoniyati.",
+      mostPreferred: "(Eng afzal ko'rilgani)",
+    },
+    premium: {
+      name: "Premium",
+      price: "39 000 so'm / oy",
+      description: "🔹 Har kuni 20 ta fayl yuklab olish imkoniyati",
+    },
+    tariffConfirmation: "Siz {tariff} tarifini tanladingiz:",
+    price: "Narx: {price}",
+    dailyDownload: "Kunlik yuklab olish: {count} ta fayl",
+    continueSubscription: "Xaridni davom ettirasizmi?",
+    yes: "Ha",
+    reject: "Rad etish",
+    sendPaymentCheck:
+      "Iltimos, to'lov chekingizni rasm yoki PDF formatida yuboring. 🧾",
+    paymentProcessing:
+      "To'lovingiz ko'rib chiqilmoqda.\nTasdiqlangandan so'ng sizga xabar beramiz. ⏳",
+    paymentConfirmed:
+      "To'lovingiz tasdiqlandi.\nTarifingiz endi faol. ✅ 🎉\nMenga link yuborishingiz mumkin 🔗 🙌",
+    resourceReady: "🎨 Sizning resursingiz tayyor! 🎨",
+    downloadLink: "Faylni tortib olish uchun quyida havola berildi👇",
+    clickToDownload: "Faylni yuklab olish uchun ushbu linkni bosin",
+    congratulations: "Tabriklaymiz! 🎉",
+  },
+  en: {
+    welcome: "Welcome! You have successfully registered. ✅",
+    chooseOption: "Please choose one:",
+    viewTariffs: "📊 View Tariff Plans",
+    mySubscription: "📜 My Subscription",
+    help: "☎️ Help",
+    aboutUs: "ℹ️ About us",
+    chooseTariff: "Choose tariff: 📦",
+    basic: {
+      name: "Basic",
+      price: "$1.49 / month",
+      description: "🔹 Ability to download 5 files every day.",
+    },
+    standard: {
+      name: "Standard",
+      price: "$2.27 / month",
+      description: "🔹 Ability to download 10 files every day.",
+      mostPreferred: "(most preferred)",
+    },
+    premium: {
+      name: "Premium",
+      price: "$3.05 / month",
+      description: "🔹 20 file downloads every day",
+    },
+    tariffConfirmation: "You chose the {tariff} tariff:",
+    price: "Price: {price}",
+    dailyDownload: "Daily download: {count} files",
+    continueSubscription: "Continue subscribing?",
+    yes: "Yes",
+    reject: "Rejection",
+    sendPaymentCheck:
+      "Please send your payment check in picture or PDF format. 🧾",
+    paymentProcessing:
+      "Your payment is being considered.\nWe will let you know after confirmation. ⏳",
+    paymentConfirmed:
+      "Your payment has been confirmed.\nYour tariff is now active. ✅ 🎉\nYou can send me a link 🔗 🙌",
+    resourceReady: "🎨 Your resource is ready! 🎨",
+    downloadLink: "The link below was given to pull the file👇",
+    clickToDownload: "Click here to download your file",
+    congratulations: "Congratulations! 🎉",
+  },
+  ru: {
+    welcome: "Добро пожаловать! Вы успешно зарегистрировались. ✅",
+    chooseOption: "Пожалуйста, выберите один из них:",
+    viewTariffs: "📊 Просмотр тарифных планов",
+    mySubscription: "📜 Моя подписка",
+    help: "☎️ Справка",
+    aboutUs: "ℹ️ О нас",
+    chooseTariff: "Выберите тариф: 📦",
+    basic: {
+      name: "Basic",
+      price: "19 000 сум / месяц",
+      description: "✔️ Возможность загрузки 5 файлов каждый день.",
+    },
+    standard: {
+      name: "Стандарт",
+      price: "29 000 сум / месяц",
+      description: "✔️ Возможность загрузки 10 файлов каждый день.",
+      mostPreferred: "(наиболее предпочтительный)",
+    },
+    premium: {
+      name: "Премиум",
+      price: "39 000 сум / месяц",
+      description: "✔️ Возможность загрузки 20 файлов каждый день",
+    },
+    tariffConfirmation: "Вы выбрали {tariff} тариф:",
+    price: "Цена: {price}",
+    dailyDownload: "Ежедневная загрузка: {count} файлов",
+    continueSubscription: "Продолжаете делать покупки?",
+    yes: "Да",
+    reject: "Отказ",
+    sendPaymentCheck:
+      "Пожалуйста, пришлите ваш платежный чек в виде картинки или в формате PDF. 🧾",
+    paymentProcessing:
+      "Ваш платеж рассматривается.\nМы сообщим вам об этом после подтверждения. ⏳",
+    paymentConfirmed:
+      "Ваш платеж подтвержден.\nТеперь ваш тариф активен. ✅ 🎉\nВы можете прислать мне ссылку 🔗 🙌",
+    resourceReady: "🎨 Ваш ресурс готов! 🎨",
+    downloadLink: "Для скачивания файла была указана ссылка ниже👇",
+    clickToDownload: "Нажмите здесь, чтобы загрузить свой файл",
+    congratulations: "Поздравляю! 🎉",
+  },
+};
+
