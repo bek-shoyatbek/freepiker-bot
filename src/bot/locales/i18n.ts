@@ -1,7 +1,10 @@
 export const i18n = {
   uz: {
     welcome: "Xush kelibsiz! Ro'yxatdan muvaffaqiyatli o'tdingiz. ✅",
+    welcomeBack: "Xush kelibsiz!",
     chooseOption: "Iltimos, birini tanlang:",
+    chooseLanguage: "Tilni tanlang: ",
+    languageSet: "Til muvaffaqiyatli o'rnatildi",
     viewTariffs: "📊 Tarif Rejalarini Ko'rish",
     mySubscription: "📜 Mening Obunam",
     help: "☎️ Yordam",
@@ -42,6 +45,9 @@ export const i18n = {
   },
   en: {
     welcome: "Welcome! You have successfully registered. ✅",
+    welcomeBack: "Welcome!",
+    chooseLanguage: "Choose language: ",
+    languageSet: "Language set successfully",
     chooseOption: "Please choose one:",
     viewTariffs: "📊 View Tariff Plans",
     mySubscription: "📜 My Subscription",
@@ -83,6 +89,9 @@ export const i18n = {
   },
   ru: {
     welcome: "Добро пожаловать! Вы успешно зарегистрировались. ✅",
+    welcomeBack: "Добро пожаловать!",
+    chooseLanguage: "Выберите язык: ",
+    languageSet: "Язык установлен успешно",
     chooseOption: "Пожалуйста, выберите один из них:",
     viewTariffs: "📊 Просмотр тарифных планов",
     mySubscription: "📜 Моя подписка",
@@ -123,4 +132,3 @@ export const i18n = {
     congratulations: "Поздравляю! 🎉",
   },
 };
-

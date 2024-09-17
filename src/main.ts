@@ -8,6 +8,7 @@ async function main() {
     await bot.api.setMyCommands([
       { command: "/start", description: "Start bot" },
       { command: "/stop", description: "Stop bot" },
+      { command: "/language", description: "Set language" },
     ]);
 
     const botInfo = await bot.api.getMe();

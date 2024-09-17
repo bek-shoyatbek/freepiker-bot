@@ -1,4 +1,4 @@
-import { Bot, GrammyError, HttpError, MiddlewareFn, session } from "grammy";
+import { Bot, GrammyError, HttpError, session } from "grammy";
 import { verifyToken } from "./helpers/validators/verify-token";
 import { getContentByLinkHandler } from "./handlers/contents/get-content";
 import { initialSession } from "./helpers/sessions";
@@ -16,7 +16,12 @@ import { selectPlanHandler } from "./handlers/callbacks/select-plan";
 import { cancelPurchaseHandler } from "./handlers/callbacks/cancel-purchase";
 import { confirmPurchaseHandler } from "./handlers/callbacks/confirm-purchase";
 import { trackRequest } from "./middlewares/request-counter.middleware";
-import { conversations } from "@grammyjs/conversations";
+import { languageMenu } from "./constants/keyboards/main.keyboard";
+import { localize } from "./locales/localize";
+import {
+  changeLanguageHandler,
+  showLanguageMenu,
+} from "./handlers/commands/language.handler";
 
 const botToken = verifyToken(configs.BOT_TOKEN);
 
@@ -38,20 +43,40 @@ bot.catch((err) => {
 
 bot.use(session({ initial: initialSession }));
 
-bot.use(conversations());
+bot.use(languageMenu);
 
 // Command handler for /start
 bot.command("start", handleStart);
 
+bot.command("language", async (ctx) => {
+  await showLanguageMenu(ctx);
+});
+
 bot.on("message:photo", getPaymentChequeHandler);
 
-bot.hears("📊 View Plans", viewPlansHandler);
+// Handle button clicks with localization
+bot.filter(
+  (ctx) => ctx.message?.text === localize("viewTariffs", ctx.session.lang),
+  viewPlansHandler
+);
+bot.filter(
+  (ctx) => ctx.message?.text === localize("mySubscription", ctx.session.lang),
+  mySubsHandler
+);
+bot.filter(
+  (ctx) => ctx.message?.text === localize("help", ctx.session.lang),
+  supportHandler
+);
+bot.filter(
+  (ctx) => ctx.message?.text === localize("aboutUs", ctx.session.lang),
+  aboutHandler
+);
 
-bot.hears("💳 My Subscription", mySubsHandler);
-
-bot.hears("📞 Support", supportHandler);
-
-bot.hears("ℹ️ About Us", aboutHandler);
+// Handle language selection
+bot.filter(
+  (ctx) => ["English", "O'zbek", "Русский"].includes(ctx.message?.text || ""),
+  changeLanguageHandler
+);
 
 bot.callbackQuery(/^select_plan:(.+)$/, selectPlanHandler);
 

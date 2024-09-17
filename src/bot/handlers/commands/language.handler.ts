@@ -1,0 +1,39 @@
+import { MyContext } from "../../../types/context";
+import {
+  generateMainKeyboard,
+  languageMenu,
+} from "../../constants/keyboards/main.keyboard";
+import { localize } from "../../locales/localize";
+
+export async function showLanguageMenu(ctx: MyContext) {
+  await ctx.reply(localize("chooseLanguage", ctx.session.lang), {
+    reply_markup: languageMenu,
+  });
+}
+
+// Handler for language change
+export async function changeLanguageHandler(ctx: MyContext) {
+  // Update the language in the session based on user selection
+  switch (ctx.message?.text) {
+    case "English":
+      ctx.session.lang = "en";
+      break;
+    case "O'zbek":
+      ctx.session.lang = "uz";
+      break;
+    case "Русский":
+      ctx.session.lang = "ru";
+      break;
+    default:
+      // If somehow an invalid option is selected, default to English
+      ctx.session.lang = "en";
+  }
+
+  // Generate new keyboard with updated language
+  const newKeyboard = generateMainKeyboard(ctx.session.lang);
+
+  // Send a message with the new keyboard
+  await ctx.reply(localize("languageSet", ctx.session.lang), {
+    reply_markup: newKeyboard,
+  });
+}

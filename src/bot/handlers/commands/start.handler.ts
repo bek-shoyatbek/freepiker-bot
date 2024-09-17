@@ -1,8 +1,10 @@
 import { User } from "../../../models/user.model";
 import { MyContext } from "../../../types/context";
-import { MAIN_MANU_KEYBOARD } from "../../constants/keyboards/main.keyboard";
+import { localize } from "../../locales/localize";
 
 export async function handleStart(ctx: MyContext) {
+  const lang = ctx.session.lang || "en";
+  console.log("lang: ", lang);
   const user = await User.findOne({ telegramId: ctx.from!.id.toString() });
   if (!user) {
     const newUser = new User({
@@ -10,11 +12,8 @@ export async function handleStart(ctx: MyContext) {
       name: ctx.from!.first_name,
     });
     await newUser.save();
-    await ctx.reply("Welcome! You have been registered.");
+    await ctx.reply(localize("welcome", lang));
   } else {
-    await ctx.reply("Welcome back!");
+    await ctx.reply(localize("welcomeBack", lang));
   }
-  await ctx.reply("Please select an option:", {
-    reply_markup: MAIN_MANU_KEYBOARD,
-  });
 }
