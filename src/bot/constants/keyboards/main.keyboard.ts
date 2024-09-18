@@ -21,17 +21,17 @@ export const generateMainKeyboard = (lang: "uz" | "en" | "ru") => {
 
 // Language selection menu
 export const languageMenu = new Menu<MyContext>("language")
-  .text("English", async (ctx) => {
+  .text("English 🇬🇧", async (ctx) => {
     ctx.session.lang = "en";
     await showMainMenu(ctx);
     return ctx.menu.close();
   })
-  .text("O'zbek", async (ctx) => {
+  .text("O'zbek 🇺🇿", async (ctx) => {
     ctx.session.lang = "uz";
     await showMainMenu(ctx);
     return ctx.menu.close();
   })
-  .text("Русский", async (ctx) => {
+  .text("Русский 🇷🇺", async (ctx) => {
     ctx.session.lang = "ru";
     await showMainMenu(ctx);
     return ctx.menu.close();

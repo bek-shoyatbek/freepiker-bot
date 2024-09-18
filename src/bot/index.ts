@@ -64,7 +64,8 @@ bot.filter(
 
 // Handle language selection
 bot.filter(
-  (ctx) => ["English", "O'zbek", "Русский"].includes(ctx.message?.text || ""),
+  (ctx) =>
+    ["English 🇬🇧", "O'zbek 🇺🇿", "Русский 🇷🇺"].includes(ctx.message?.text || ""),
   changeLanguageHandler
 );
 
