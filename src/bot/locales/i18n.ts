@@ -46,8 +46,10 @@ export const i18n = {
     askSupport:
       "Iltimos, bizga xabar berish uchun t.me/@tgplanbot ni ulashing.",
     readyToDownload: (link: string) => `🎨 Sizning resursingiz tayyor! 🎨
+    
 Faylni tortib olish uchun quyida havola berildi👇
-🔗 <a href="${link}">${link}</a>
+
+🔗 <a href="${link}">Faylni yuklab olish uchun ushbu linkni bosing</a>
 
 Tabriklaymiz! 🎉`,
     inlivalidLink: "Link not valid. Please try again.",
@@ -106,7 +108,7 @@ Tabriklaymiz! 🎉`,
 
 The link below was given to pull the file👇
 
-🔗 <a href="${link}">${link}</a>
+🔗 <a href="${link}">Click this link to download the file</a>
 
 Congratulations! 🎉`,
     inlivalidLink: "Link not valid. Please try again.",
@@ -165,7 +167,7 @@ Congratulations! 🎉`,
 
 Ссылка ниже была дана для скачивания вашего файла👇
 
-🔗 <a href="${link}">${link}</a>
+🔗 <a href="${link}">Нажмите на эту ссылку, чтобы загрузить файл</a>
 
 Поздравляю! 🎉`,
     inlivalidLink: "Ссылка не действительна. Пожалуйста, попробуйте ещё раз.",
