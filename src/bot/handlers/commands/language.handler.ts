@@ -7,7 +7,7 @@ import {
 import { localize } from "../../locales/localize";
 
 export async function showLanguageMenu(ctx: MyContext) {
-  await ctx.reply(localize("chooseLanguage", ctx.session.lang), {
+  await ctx.reply("Tilni tanlang / Choose your language / Выберите язык :", {
     reply_markup: languageMenu,
   });
 }
