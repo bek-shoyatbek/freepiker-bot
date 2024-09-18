@@ -2,6 +2,7 @@ import { MyContext } from "../../../types/context";
 import {
   generateMainKeyboard,
   languageMenu,
+  showMainMenu,
 } from "../../constants/keyboards/main.keyboard";
 import { localize } from "../../locales/localize";
 
@@ -11,8 +12,8 @@ export async function showLanguageMenu(ctx: MyContext) {
   });
 }
 
-// Handler for language change
 export async function changeLanguageHandler(ctx: MyContext) {
+  console.log("On language change handler");
   // Update the language in the session based on user selection
   switch (ctx.message?.text) {
     case "English":
@@ -36,4 +37,7 @@ export async function changeLanguageHandler(ctx: MyContext) {
   await ctx.reply(localize("languageSet", ctx.session.lang), {
     reply_markup: newKeyboard,
   });
+
+  // Show main menu
+  await showMainMenu(ctx);
 }

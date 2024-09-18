@@ -2,6 +2,7 @@ import bot from "../..";
 import { Payment } from "../../../models/payment.model";
 import { User } from "../../../models/user.model";
 import { MyContext } from "../../../types/context";
+import { localize } from "../../locales/localize";
 
 export const paymentRejectionHandler = async (ctx: MyContext) => {
   const paymentId = ctx.match![1];
@@ -22,6 +23,6 @@ export const paymentRejectionHandler = async (ctx: MyContext) => {
   const userChatId = user.telegramId;
   await bot.api.sendMessage(
     userChatId,
-    "Your payment has been rejected. Please contact support for more information."
+    localize("paymentRejected", ctx.session.lang)
   );
 };

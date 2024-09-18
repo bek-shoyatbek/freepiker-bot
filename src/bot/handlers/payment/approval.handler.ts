@@ -3,6 +3,7 @@ import { Payment } from "../../../models/payment.model";
 import { UserPlan } from "../../../models/user-plan.model";
 import { User } from "../../../models/user.model";
 import { MyContext } from "../../../types/context";
+import { localize } from "../../locales/localize";
 
 export const paymentApprovalHandler = async (ctx: MyContext) => {
   const paymentId = ctx.match![1];
@@ -34,6 +35,6 @@ export const paymentApprovalHandler = async (ctx: MyContext) => {
 
   await bot.api.sendMessage(
     userChatId,
-    "Your payment has been approved. Your plan is now active."
+    localize("paymentConfirmed", ctx.session.lang)
   );
 };

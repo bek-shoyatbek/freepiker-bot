@@ -5,6 +5,7 @@ import { Payment } from "../../../models/payment.model";
 import { Plan } from "../../../models/plan.model";
 import { User } from "../../../models/user.model";
 import { MyContext } from "../../../types/context";
+import { localize } from "../../locales/localize";
 
 export const getPaymentChequeHandler = async (ctx: MyContext) => {
   if (!ctx.session.pendingPlan) {
@@ -19,7 +20,7 @@ export const getPaymentChequeHandler = async (ctx: MyContext) => {
   }
   const chequeImage = ctx.message?.photo;
   if (!chequeImage) {
-    return ctx.reply("Please send the payment cheque as an image.");
+    return ctx.reply(localize("sendPaymentCheck", ctx.session.lang));
   }
 
   const fileId = chequeImage[chequeImage.length - 1].file_id;
@@ -34,9 +35,7 @@ export const getPaymentChequeHandler = async (ctx: MyContext) => {
   // Save payment
   await payment.save();
 
-  await ctx.reply(
-    "Your payment is being processed. We will notify you once it's approved."
-  );
+  await ctx.reply(localize("paymentProcessing", ctx.session.lang));
 
   // Send payment to admin group
   const keyboard = new InlineKeyboard()

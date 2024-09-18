@@ -2,6 +2,8 @@ import { IPlan } from "../../../models/plan.model";
 import { UserPlan } from "../../../models/user-plan.model";
 import { User } from "../../../models/user.model";
 import { MyContext } from "../../../types/context";
+import { i18n } from "../../locales/i18n";
+import { localize } from "../../locales/localize";
 
 // Update "My Subscription" handler to include request count
 export const mySubsHandler = async (ctx: MyContext) => {
@@ -21,11 +23,14 @@ export const mySubsHandler = async (ctx: MyContext) => {
     );
   }
 
-
   const plan = userPlan[userPlan.length - 1].planId as unknown as IPlan;
   await ctx.reply(
-    `Your current plan: ${plan.title}\n` +
-      `Daily requests: ${user.dailyRequestsCount}/${plan.dailyRequestCount}\n` +
-      `Expires on: ${userPlan[userPlan.length - 1].endDate.toDateString()}`
+    `${i18n[ctx.session.lang].currentPlan(plan.title)}
+${localize("dailyDownloadText", ctx.session.lang)} ${user.dailyRequestsCount}/${
+      plan.dailyRequestCount
+    }
+${i18n[ctx.session.lang].expiresOn(
+  userPlan[userPlan.length - 1].endDate.toDateString()
+)}`
   );
 };

@@ -15,30 +15,25 @@ export const generateMainKeyboard = (lang: "uz" | "en" | "ru") => {
     .row()
     .text(mySubsText)
     .text(aboutText)
-    .oneTime()
-    .resized();
+    .resized()
+    .oneTime(true);
 };
 
 // Language selection menu
 export const languageMenu = new Menu<MyContext>("language")
   .text("English", async (ctx) => {
     ctx.session.lang = "en";
-    const oldUser = ctx.session.subscribed;
-    ctx.reply(localize(oldUser ? "welcomeBack" : "welcome", ctx.session.lang));
+    await showMainMenu(ctx);
     return ctx.menu.close();
   })
   .text("O'zbek", async (ctx) => {
     ctx.session.lang = "uz";
-    const oldUser = ctx.session.subscribed;
-    await ctx.reply(
-      localize(oldUser ? "welcomeBack" : "welcome", ctx.session.lang)
-    );
+    await showMainMenu(ctx);
     return ctx.menu.close();
   })
   .text("Русский", async (ctx) => {
     ctx.session.lang = "ru";
-    const oldUser = ctx.session.subscribed;
-    ctx.reply(localize(oldUser ? "welcomeBack" : "welcome", ctx.session.lang));
+    await showMainMenu(ctx);
     return ctx.menu.close();
   });
 

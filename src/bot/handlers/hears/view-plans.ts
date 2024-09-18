@@ -1,6 +1,7 @@
 import { InlineKeyboard } from "grammy";
 import { Plan } from "../../../models/plan.model";
 import { MyContext } from "../../../types/context";
+import { localize } from "../../locales/localize";
 
 export const viewPlansHandler = async (ctx: MyContext) => {
   const plans = await Plan.find();
@@ -8,9 +9,11 @@ export const viewPlansHandler = async (ctx: MyContext) => {
 
   plans.forEach((plan) => {
     keyboard
-      .text(`${plan.title} - $${plan.price}`, `select_plan:${plan._id}`)
+      .text(`${plan.title} - ${plan.price}`, `select_plan:${plan._id}`)
       .row();
   });
 
-  await ctx.reply("Select a plan:", { reply_markup: keyboard });
+  await ctx.reply(localize("chooseTariff", ctx.session.lang), {
+    reply_markup: keyboard,
+  });
 };

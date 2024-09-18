@@ -1,7 +1,6 @@
 import { MyContext } from "../../../types/context";
+import { localize } from "../../locales/localize";
 
 export const supportHandler = async (ctx: MyContext) => {
-  await ctx.reply(
-    "If you need any help, please contact our support team at support@example.com"
-  );
+  await ctx.reply(localize("askSupport", ctx.session.lang));
 };

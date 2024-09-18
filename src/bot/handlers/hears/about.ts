@@ -1,7 +1,7 @@
 import { MyContext } from "../../../types/context";
+import { localize } from "../../locales/localize";
 
 export const aboutHandler = async (ctx: MyContext) => {
-  await ctx.reply(
-    "We are a company dedicated to providing excellent service. Learn more at www.example.com"
-  );
+  console.log("On /about command");
+  await ctx.reply(localize("aboutUs", ctx.session.lang));
 };
