@@ -1,22 +1,18 @@
-import { Context } from "grammy";
 import { RapidapiService } from "../../../downloaders/rapidapi/rapidapi.service";
-import {
-  generateDownloadLinkMessage,
-  PROCESSING,
-} from "../../constants/reply-messages";
-import {
-  CONTENT_NOT_FOUND,
-  DOWNLOAD_INVALID,
-} from "../../constants/error-messages";
 import { sendGroupNotificationMessage } from "../../helpers/api/send-group-notification-message";
 import { Content } from "../../interfaces/content.interface";
+import { localize } from "../../locales/localize";
+import { MyContext } from "../../../types/context";
+import { i18n } from "../../locales/i18n";
 
-export async function getContentByLinkHandler(ctx: Context) {
-  const processingMessage = await ctx.reply(PROCESSING);
+export async function getContentByLinkHandler(ctx: MyContext) {
+  const processingMessage = await ctx.reply(
+    localize("requestProcessing", ctx.session.lang)
+  );
 
   const linkToDownload = ctx.message?.text;
   if (!linkToDownload) {
-    return ctx.reply(DOWNLOAD_INVALID);
+    return ctx.reply(localize("inlivalidLink", ctx.session.lang));
   }
 
   const rapidapi = new RapidapiService();
@@ -25,10 +21,10 @@ export async function getContentByLinkHandler(ctx: Context) {
   );
 
   if (!downloadLink) {
-    return ctx.reply(CONTENT_NOT_FOUND);
+    return ctx.reply(localize("inlivalidLink", ctx.session.lang));
   }
 
-  const message = generateDownloadLinkMessage(downloadLink);
+  const message = i18n[ctx.session.lang].readyToDownload(downloadLink);
 
   await ctx.api.editMessageText(
     processingMessage.chat.id,

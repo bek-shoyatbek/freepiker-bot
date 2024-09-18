@@ -13,7 +13,6 @@ export async function showLanguageMenu(ctx: MyContext) {
 }
 
 export async function changeLanguageHandler(ctx: MyContext) {
-  console.log("On language change handler");
   // Update the language in the session based on user selection
   switch (ctx.message?.text) {
     case "English":

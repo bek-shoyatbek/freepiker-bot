@@ -50,6 +50,8 @@ Faylni tortib olish uchun quyida havola berildi👇
 🔗 <a href="${link}">${link}</a>
 
 Tabriklaymiz! 🎉`,
+    inlivalidLink: "Link not valid. Please try again.",
+    requestProcessing: "Sizning so'ro'vingiz yuborilmoqda. ⏳",
   },
   en: {
     welcome: "Welcome! You have successfully registered. ✅",
@@ -107,6 +109,8 @@ The link below was given to pull the file👇
 🔗 <a href="${link}">${link}</a>
 
 Congratulations! 🎉`,
+    inlivalidLink: "Link not valid. Please try again.",
+    requestProcessing: "Your request is being processed.",
   },
   ru: {
     welcome: "Добро пожаловать! Вы успешно зарегистрировались. ✅",
@@ -164,5 +168,8 @@ Congratulations! 🎉`,
 🔗 <a href="${link}">${link}</a>
 
 Поздравляю! 🎉`,
+    inlivalidLink: "Ссылка не действительна. Пожалуйста, попробуйте ещё раз.",
+    requestProcessing:
+      "Ваша заявка рассматривается. Мы сообщим вам об этом после подтверждения. ⏳",
   },
 };

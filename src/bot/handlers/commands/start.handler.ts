@@ -1,10 +1,9 @@
 import { User } from "../../../models/user.model";
 import { MyContext } from "../../../types/context";
-import { showMainMenu } from "../../constants/keyboards/main.keyboard";
 import { localize } from "../../locales/localize";
+import { showLanguageMenu } from "./language.handler";
 
 export async function handleStart(ctx: MyContext) {
-  console.log("On /start command");
   const lang = ctx.session.lang;
   const user = await User.findOne({ telegramId: ctx.from!.id.toString() });
   if (!user) {
@@ -18,5 +17,5 @@ export async function handleStart(ctx: MyContext) {
     await ctx.reply(localize("welcomeBack", lang));
   }
 
-  await showMainMenu(ctx);
+  await showLanguageMenu(ctx);
 }
