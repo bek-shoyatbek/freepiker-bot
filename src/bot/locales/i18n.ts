@@ -39,15 +39,17 @@ export const i18n = {
     paymentConfirmed:
       "To'lovingiz tasdiqlandi.\nTarifingiz endi faol. ✅ 🎉\nMenga link yuborishingiz mumkin 🔗 🙌",
     paymentRejected: "To'lovingiz tasdiqlanmadi. ❌",
-    resourceReady: "🎨 Sizning resursingiz tayyor! 🎨",
-    downloadLink: "Faylni tortib olish uchun quyida havola berildi👇",
-    clickToDownload: "Faylni yuklab olish uchun ushbu linkni bosin",
     congratulations: "Tabriklaymiz! 🎉",
     currentPlan: (plan: string) => "Joriy  tarif: " + plan,
     expiresOn: (date: string) => "Amal qilish muddati: " + date,
     dailyDownloadText: "Kunlik yuklab olish:",
     askSupport:
       "Iltimos, bizga xabar berish uchun t.me/@tgplanbot ni ulashing.",
+    readyToDownload: (link: string) => `🎨 Sizning resursingiz tayyor! 🎨
+Faylni tortib olish uchun quyida havola berildi👇
+🔗 <a href="${link}">${link}</a>
+
+Tabriklaymiz! 🎉`,
   },
   en: {
     welcome: "Welcome! You have successfully registered. ✅",
@@ -98,6 +100,13 @@ export const i18n = {
     expiresOn: (date: string) => "Expires on: " + date,
     dailyDownloadText: `Daily download:`,
     askSupport: "Please ask support via @tgplanbot",
+    readyToDownload: (link: string) => `🎨 Your resource is ready! 🎨
+
+The link below was given to pull the file👇
+
+🔗 <a href="${link}">${link}</a>
+
+Congratulations! 🎉`,
   },
   ru: {
     welcome: "Добро пожаловать! Вы успешно зарегистрировались. ✅",
@@ -148,5 +157,12 @@ export const i18n = {
     expiresOn: (date: string) => "Срок действия: " + date,
     dailyDownloadText: `Ежедневная загрузка:`,
     askSupport: "Пожалуйста, задайте свою проблему через @tgplanbot",
+    readyToDownload: (link: string) => `🎨 Ваш ресурс готов! 🎨
+
+Ссылка ниже была дана для скачивания вашего файла👇
+
+🔗 <a href="${link}">${link}</a>
+
+Поздравляю! 🎉`,
   },
 };
