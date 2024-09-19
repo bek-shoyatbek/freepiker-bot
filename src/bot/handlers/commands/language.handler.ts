@@ -39,8 +39,6 @@ export async function changeLanguageHandler(ctx: MyContext) {
     reply_markup: newKeyboard,
   });
 
-  await ctx.reply(i18n[ctx.session.lang].greet(ctx.from!.first_name));
-
   // Show main menu
   await showMainMenu(ctx);
 }

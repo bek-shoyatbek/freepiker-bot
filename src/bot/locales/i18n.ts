@@ -1,10 +1,5 @@
 export const i18n = {
   uz: {
-    greet: (name: string) => `Salom, ${name}!
-
-Sizda 1 ta premium file yuklab olish imkoniyati taqdim etildi 🥳
-
-Iltimos, file linkini yuboring 👇`,
     welcome: "Xush kelibsiz! Ro'yxatdan muvaffaqiyatli o'tdingiz. ✅",
     welcomeBack: "Xush kelibsiz!",
     chooseOption: "Iltimos, birini tanlang:",
@@ -61,11 +56,6 @@ Tabriklaymiz! 🎉`,
       "Siz bepul sinovdan foydalanib bo'ldingiz. Iltimos, xizmatdan foydalanishda davom etish uchun tarif sotib oling.",
   },
   en: {
-    greet: (name: string) => `Hi, ${name}!
-
-You have been given a free download chance to download premium content 🥳
-
-Please, Send freepik premium content link here:`,
     welcome: "Welcome! You have successfully registered. ✅",
     welcomeBack: "Welcome!",
     chooseLanguage: "Choose language: ",
@@ -127,11 +117,6 @@ Congratulations! 🎉`,
       "You've already used your free trial. Please purchase a plan to continue using the service.",
   },
   ru: {
-    greet: (name: string) => `Привет, ${name}!
-    
-Вы получили шанс загрузить премиум контент без регистрации 🥳
-
-Пожалуйста, отправьте ссылку на премиум контент:`,
     welcome: "Добро пожаловать! Вы успешно зарегистрировались. ✅",
     welcomeBack: "Добро пожаловать!",
     chooseLanguage: "Выберите язык: ",
@@ -191,4 +176,32 @@ Congratulations! 🎉`,
     freeTrialAlreadyUsed:
       "Вы уже использовали свою бесплатную пробную версию. Пожалуйста, приобретите тарифный план, чтобы продолжить пользоваться сервисом.",
   },
+};
+
+export const generalMessages = {
+  greet: (name: string) => `Salom, ${name}!
+
+  Sizda 1 ta premium file yuklab olish imkoniyati taqdim etildi 🥳
+  
+  Iltimos, file linkini yuboring 👇
+  ----------------------------------------------------------------
+  Hi, ${name}!
+  
+  You have been given a free download chance to download premium content 🥳
+  
+  Please, Send freepik premium content link here:
+  
+  ----------------------------------------------------------------
+  Привет, ${name}!
+      
+  Вы получили шанс загрузить премиум контент без регистрации 🥳
+  
+  Пожалуйста, отправьте ссылку на премиум контент:
+  `,
+  greetWithOldUser: (name: string) => `
+   Salom, ${name}!
+-----------------
+  Hi, ${name}!
+-----------------
+  Привет, ${name}!`,
 };
