@@ -1,6 +1,10 @@
 export const i18n = {
   uz: {
-    greet: (name: string) => `Salom, ${name}!`,
+    greet: (name: string) => `Salom, ${name}!
+
+Sizda 1 ta premium file yuklab olish imkoniyati taqdim etildi 🥳
+
+Iltimos, file linkini yuboring 👇`,
     welcome: "Xush kelibsiz! Ro'yxatdan muvaffaqiyatli o'tdingiz. ✅",
     welcomeBack: "Xush kelibsiz!",
     chooseOption: "Iltimos, birini tanlang:",
@@ -53,9 +57,15 @@ Tabriklaymiz! 🎉`,
     requestProcessing: "Sizning so'ro'vingiz yuborilmoqda. ⏳",
     onlyFreepikPremiumContentAllowed:
       "Faqat freepik premium resurslarni yuklab olishingiz lozim.",
+    freeTrialAlreadyUsed:
+      "Siz bepul sinovdan foydalanib bo'ldingiz. Iltimos, xizmatdan foydalanishda davom etish uchun tarif sotib oling.",
   },
   en: {
-    greet: (name: string) => `Hi, ${name}!`,
+    greet: (name: string) => `Hi, ${name}!
+
+You have been given a free download chance to download premium content 🥳
+
+Please, Send freepik premium content link here:`,
     welcome: "Welcome! You have successfully registered. ✅",
     welcomeBack: "Welcome!",
     chooseLanguage: "Choose language: ",
@@ -113,9 +123,15 @@ Congratulations! 🎉`,
     requestProcessing: "Your request is being processed.",
     onlyFreepikPremiumContentAllowed:
       "Only freepik premium content is allowed.",
+    freeTrialAlreadyUsed:
+      "You've already used your free trial. Please purchase a plan to continue using the service.",
   },
   ru: {
-    greet: (name: string) => `Привет, ${name}!`,
+    greet: (name: string) => `Привет, ${name}!
+    
+Вы получили шанс загрузить премиум контент без регистрации 🥳
+
+Пожалуйста, отправьте ссылку на премиум контент:`,
     welcome: "Добро пожаловать! Вы успешно зарегистрировались. ✅",
     welcomeBack: "Добро пожаловать!",
     chooseLanguage: "Выберите язык: ",
@@ -172,5 +188,7 @@ Congratulations! 🎉`,
       "Ваша заявка рассматривается. Мы сообщим вам об этом после подтверждения. ⏳",
     onlyFreepikPremiumContentAllowed:
       "Вы можете использовать только контент Freepik Premium.",
+    freeTrialAlreadyUsed:
+      "Вы уже использовали свою бесплатную пробную версию. Пожалуйста, приобретите тарифный план, чтобы продолжить пользоваться сервисом.",
   },
 };

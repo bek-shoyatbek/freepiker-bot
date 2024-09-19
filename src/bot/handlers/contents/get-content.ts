@@ -21,7 +21,9 @@ export async function getContentByLinkHandler(ctx: MyContext) {
   );
 
   if (!downloadLink) {
-    return ctx.reply(localize("inlivalidLink", ctx.session.lang));
+    return ctx.reply(
+      localize("onlyFreepikPremiumContentAllowed", ctx.session.lang)
+    );
   }
 
   const message = i18n[ctx.session.lang].readyToDownload(downloadLink);
