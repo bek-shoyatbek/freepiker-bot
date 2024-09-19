@@ -25,16 +25,16 @@ export const paymentApprovalHandler = async (ctx: MyContext) => {
 
   await userPlan.save();
 
-  await ctx.answerCallbackQuery("Payment approved");
   const user = await User.findOne({ _id: payment.userId });
   if (!user) {
     return ctx.answerCallbackQuery("User not found");
   }
 
-  const userChatId = user.telegramId;
+  await ctx.answerCallbackQuery("✅");
 
-  await bot.api.sendMessage(
-    userChatId,
-    localize("paymentConfirmed", ctx.session.lang)
-  );
+  const userChatId = user.telegramId;
+  const approvedMessage = localize("paymentConfirmed", ctx.session.lang);
+  console.log("lang", ctx.session.lang);
+  console.log("Approved message: ", approvedMessage);
+  await bot.api.sendMessage(userChatId, approvedMessage);
 };

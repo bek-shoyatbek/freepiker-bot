@@ -35,10 +35,14 @@ export const i18n = {
     reject: "Rad etish",
     cancelPurchase: "Sotib olish bekor qilindi",
     sendPaymentCheck: "Iltimos, to'lov chekingizni rasm formatida yuboring. 🧾",
-    paymentProcessing:
-      "To'lovingiz ko'rib chiqilmoqda.\nTasdiqlangandan so'ng sizga xabar beramiz. ⏳",
-    paymentConfirmed:
-      "To'lovingiz tasdiqlandi.\nTarifingiz endi faol. ✅ 🎉\nMenga link yuborishingiz mumkin 🔗 🙌",
+    paymentProcessing: `To'lovingiz ko'rib chiqilmoqda.
+
+Tasdiqlangandan so'ng sizga xabar beramiz. ⏳`,
+    paymentConfirmed: `To'lovingiz tasdiqlandi.
+
+Tarifingiz endi faol. ✅ 🎉
+      
+Menga link yuborishingiz mumkin 🔗 🙌`,
     paymentRejected: "To'lovingiz tasdiqlanmadi. ❌",
     congratulations: "Tabriklaymiz! 🎉",
     currentPlan: (plan: string) => "Joriy  tarif: " + plan,
@@ -55,6 +59,8 @@ Faylni tortib olish uchun quyida havola berildi👇
 Tabriklaymiz! 🎉`,
     inlivalidLink: "Link not valid. Please try again.",
     requestProcessing: "Sizning so'ro'vingiz yuborilmoqda. ⏳",
+    onlyFreepikPremiumContentAllowed:
+      "Faqat freepik premium resurslarni yuklab olishingiz lozim.",
   },
   en: {
     greet: (name: string) => `Hi, ${name}!`,
@@ -93,10 +99,14 @@ Tabriklaymiz! 🎉`,
     reject: "Rejection",
     sendPaymentCheck:
       "Please send your payment check in picture or PDF format. 🧾",
-    paymentProcessing:
-      "Your payment is being considered.\nWe will let you know after confirmation. ⏳",
-    paymentConfirmed:
-      "Your payment has been confirmed.\nYour tariff is now active. ✅ 🎉\nYou can send me a link 🔗 🙌",
+    paymentProcessing: `Your payment is being considered.
+      
+We will let you know after confirmation. ⏳`,
+    paymentConfirmed: `Your payment has been confirmed.
+
+Your plan is now active. ✅ 🎉
+
+You can send me a link 🔗 🙌`,
     paymentRejected: "Your payment has been rejected. ❌",
     resourceReady: "🎨 Your resource is ready! 🎨",
     downloadLink: "The link below was given to pull the file👇",
@@ -115,6 +125,8 @@ The link below was given to pull the file👇
 Congratulations! 🎉`,
     inlivalidLink: "Link not valid. Please try again.",
     requestProcessing: "Your request is being processed.",
+    onlyFreepikPremiumContentAllowed:
+      "Only freepik premium content is allowed.",
   },
   ru: {
     greet: (name: string) => `Привет, ${name}!`,
@@ -153,10 +165,14 @@ Congratulations! 🎉`,
     reject: "Отказ",
     sendPaymentCheck:
       "Пожалуйста, пришлите ваш платежный чек в виде картинки или в формате PDF. 🧾",
-    paymentProcessing:
-      "Ваш платеж рассматривается.\nМы сообщим вам об этом после подтверждения. ⏳",
-    paymentConfirmed:
-      "Ваш платеж подтвержден.\nТеперь ваш тариф активен. ✅ 🎉\nВы можете прислать мне ссылку 🔗 🙌",
+    paymentProcessing: `Ваш платеж рассматривается.
+      
+Мы сообщим вам об этом после подтверждения. ⏳`,
+    paymentConfirmed: `Ваш платеж подтвержден.
+      
+Теперь ваш тариф активен. ✅ 🎉
+      
+Вы можете прислать мне ссылку 🔗 🙌`,
     paymentRejected: "Ваш платеж отклонен. ❌",
     resourceReady: "🎨 Ваш ресурс готов! 🎨",
     downloadLink: "Для скачивания файла была указана ссылка ниже👇",
@@ -176,5 +192,7 @@ Congratulations! 🎉`,
     inlivalidLink: "Ссылка не действительна. Пожалуйста, попробуйте ещё раз.",
     requestProcessing:
       "Ваша заявка рассматривается. Мы сообщим вам об этом после подтверждения. ⏳",
+    onlyFreepikPremiumContentAllowed:
+      "Вы можете использовать только контент Freepik Premium.",
   },
 };

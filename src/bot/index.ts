@@ -23,6 +23,7 @@ import {
   showLanguageMenu,
 } from "./handlers/commands/language.handler";
 import { catchGlobalBotErrors } from "./helpers/errors/global-error.handler";
+import freepikPremiumFilter from "./middlewares/url-filter.middleware";
 
 const botToken = verifyToken(configs.BOT_TOKEN);
 
@@ -79,6 +80,6 @@ bot.callbackQuery(/approve_(.+)/, paymentApprovalHandler);
 
 bot.callbackQuery(/reject_(.+)/, paymentRejectionHandler);
 
-bot.on("::url", trackRequest, getContentByLinkHandler);
+bot.on("::url", freepikPremiumFilter, trackRequest, getContentByLinkHandler);
 
 export default bot;
