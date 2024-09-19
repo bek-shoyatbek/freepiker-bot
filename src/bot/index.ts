@@ -1,4 +1,4 @@
-import { Bot, GrammyError, HttpError, session } from "grammy";
+import { Bot, session } from "grammy";
 import { verifyToken } from "./helpers/validators/verify-token";
 import { getContentByLinkHandler } from "./handlers/contents/get-content";
 import { initialSession } from "./helpers/sessions";

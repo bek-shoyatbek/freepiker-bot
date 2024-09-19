@@ -1,5 +1,6 @@
 import { User } from "../../../models/user.model";
 import { MyContext } from "../../../types/context";
+import { i18n } from "../../locales/i18n";
 import { localize } from "../../locales/localize";
 import { showLanguageMenu } from "./language.handler";
 
@@ -16,6 +17,8 @@ export async function handleStart(ctx: MyContext) {
   } else {
     await ctx.reply(localize("welcomeBack", lang));
   }
+
+  await ctx.reply(i18n[lang].hi(ctx.from!.first_name));
 
   await showLanguageMenu(ctx);
 }

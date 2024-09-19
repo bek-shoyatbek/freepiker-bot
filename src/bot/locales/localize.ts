@@ -36,6 +36,3 @@ export function localize<K extends I18nKey>(
 
   return text;
 }
-
-// Example usage:
-// const translatedText = localize("basic.name", "en", { param1: "value1" });

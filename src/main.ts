@@ -15,7 +15,7 @@ async function main() {
     console.log(`Bot info: ${botInfo.first_name} (@${botInfo.username})`);
 
     await bot.start({
-      onStart: (botInfo) => {
+      onStart: (botInfo: any) => {
         console.log(`Bot @${botInfo.username} started!`);
       },
       allowed_updates: ["message", "callback_query"],
