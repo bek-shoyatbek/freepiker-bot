@@ -4,6 +4,7 @@ import {
   languageMenu,
   showMainMenu,
 } from "../../constants/keyboards/main.keyboard";
+import { i18n } from "../../locales/i18n";
 import { localize } from "../../locales/localize";
 
 export async function showLanguageMenu(ctx: MyContext) {
@@ -36,6 +37,8 @@ export async function changeLanguageHandler(ctx: MyContext) {
   await ctx.reply(localize("languageSet", ctx.session.lang), {
     reply_markup: newKeyboard,
   });
+
+  await ctx.reply(i18n[ctx.session.lang].greet(ctx.from!.first_name));
 
   // Show main menu
   await showMainMenu(ctx);
