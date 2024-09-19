@@ -18,7 +18,7 @@ export async function handleStart(ctx: MyContext) {
     await ctx.reply(localize("welcomeBack", lang));
   }
 
-  await ctx.reply(i18n[lang].hi(ctx.from!.first_name));
+  await ctx.reply(i18n[lang].greet(ctx.from!.first_name));
 
   await showLanguageMenu(ctx);
 }

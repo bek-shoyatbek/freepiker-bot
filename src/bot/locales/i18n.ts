@@ -1,6 +1,6 @@
 export const i18n = {
   uz: {
-    hi: (name: string) => `Salom, ${name}!`,
+    greet: (name: string) => `Salom, ${name}!`,
     welcome: "Xush kelibsiz! Ro'yxatdan muvaffaqiyatli o'tdingiz. ✅",
     welcomeBack: "Xush kelibsiz!",
     chooseOption: "Iltimos, birini tanlang:",
@@ -57,7 +57,7 @@ Tabriklaymiz! 🎉`,
     requestProcessing: "Sizning so'ro'vingiz yuborilmoqda. ⏳",
   },
   en: {
-    hi: (name: string) => `Hi, ${name}!`,
+    greet: (name: string) => `Hi, ${name}!`,
     welcome: "Welcome! You have successfully registered. ✅",
     welcomeBack: "Welcome!",
     chooseLanguage: "Choose language: ",
@@ -117,7 +117,7 @@ Congratulations! 🎉`,
     requestProcessing: "Your request is being processed.",
   },
   ru: {
-    hi: (name: string) => `Привет, ${name}!`,
+    greet: (name: string) => `Привет, ${name}!`,
     welcome: "Добро пожаловать! Вы успешно зарегистрировались. ✅",
     welcomeBack: "Добро пожаловать!",
     chooseLanguage: "Выберите язык: ",
