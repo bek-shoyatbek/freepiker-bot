@@ -11,22 +11,14 @@ export const i18n = {
     help: "☎️ Yordam",
     aboutUs: "ℹ️ Biz haqimizda",
     chooseTariff: "Tarifni tanlang: 📦",
-    basic: {
-      name: "Basic",
-      price: "19 000 so'm / oy",
-      description: "🔹 Har kuni 5 ta fayl yuklab olish imkoniyati.",
-    },
-    standard: {
-      name: "Standart",
-      price: "29 000 so'm / oy",
-      description: "🔹 Har kuni 10 ta fayl yuklab olish imkoniyati.",
-      mostPreferred: "(Eng afzal ko'rilgani)",
-    },
-    premium: {
-      name: "Premium",
-      price: "39 000 so'm / oy",
-      description: "🔹 Har kuni 20 ta fayl yuklab olish imkoniyati",
-    },
+    plans: `Basic - 19 000 so‘m / oy
+🔹 Har kuni 5 ta fayl yuklab olish imkoniyati.
+
+Standart - 29 000 so‘m / oy (Eng afzal ko'rilgani)
+🔹 Har kuni 10 ta fayl yuklab olish imkoniyati.
+
+Premium - 39 000 so‘m / oy
+🔹 Har kuni 20 ta fayl yuklab olish imkoniyati`,
     tariffConfirmation: (plan: string) => `Siz ${plan} tarifini tanladingiz:`,
     price: (price: number) => `Narx: ${price}`,
     dailyDownload: (count: number) => `Kunlik yuklab olish: ${count} ta fayl`,
@@ -75,22 +67,16 @@ Tabriklaymiz! 🎉`,
     help: "☎️ Help",
     aboutUs: "ℹ️ About us",
     chooseTariff: "Choose tariff: 📦",
-    basic: {
-      name: "Basic",
-      price: "$1.49 / month",
-      description: "🔹 Ability to download 5 files every day.",
-    },
-    standard: {
-      name: "Standard",
-      price: "$2.27 / month",
-      description: "🔹 Ability to download 10 files every day.",
-      mostPreferred: "(most preferred)",
-    },
-    premium: {
-      name: "Premium",
-      price: "$3.05 / month",
-      description: "🔹 20 file downloads every day",
-    },
+    plans: `Choose tariff: 📦
+
+Basic- $1.49 / month
+🔹 Ability to download 5 files every day.
+
+Standard- $2.27 / month (most preferred)
+🔹 Ability to download 10 files every day.
+
+Premium- $3.05 / month
+🔹 20 file downloads every day`,
     tariffConfirmation: (plan: string) => `You chose the ${plan}:`,
     price: (price: number) => `Price: ${price}`,
     dailyDownload: (count: number) => `Daily download: ${count} files`,
@@ -141,22 +127,14 @@ Congratulations! 🎉`,
     aboutUs: "ℹ️ О нас",
     chooseTariff: "Выберите тариф: 📦",
     cancelPurchase: "Покупка отменена",
-    basic: {
-      name: "Basic",
-      price: "19 000 сум / месяц",
-      description: "✔️ Возможность загрузки 5 файлов каждый день.",
-    },
-    standard: {
-      name: "Стандарт",
-      price: "29 000 сум / месяц",
-      description: "✔️ Возможность загрузки 10 файлов каждый день.",
-      mostPreferred: "(наиболее предпочтительный)",
-    },
-    premium: {
-      name: "Премиум",
-      price: "39 000 сум / месяц",
-      description: "✔️ Возможность загрузки 20 файлов каждый день",
-    },
+    plans: `Basic-19 000 сум / месяц
+✔️ Возможность загрузки 5 файлов каждый день.
+
+Стандарт-29 000 сум / месяц (наиболее предпочтительный)
+✔️ Возможность загрузки 10 файлов каждый день.
+
+Премиум-39 000 сум / месяц
+✔️ Возможность загрузки 20 файлов каждый день`,
     tariffConfirmation: (plan: string) => `Вы выбрали ${plan} тариф:`,
     price: (price: number) => `Цена: ${price}`,
     dailyDownload: (count: number) => `Ежедневная загрузка: ${count} файлов`,

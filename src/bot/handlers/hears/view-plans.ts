@@ -8,12 +8,10 @@ export const viewPlansHandler = async (ctx: MyContext) => {
   const keyboard = new InlineKeyboard();
 
   plans.forEach((plan) => {
-    keyboard
-      .text(`${plan.title} - ${plan.price}`, `select_plan:${plan._id}`)
-      .row();
+    keyboard.text(`${plan.title}`).row();
   });
 
-  await ctx.reply(localize("chooseTariff", ctx.session.lang), {
+  await ctx.reply(localize("plans", ctx.session.lang), {
     reply_markup: keyboard,
   });
 };
