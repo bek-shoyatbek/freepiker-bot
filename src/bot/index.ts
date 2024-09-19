@@ -4,7 +4,7 @@ import { getContentByLinkHandler } from "./handlers/contents/get-content";
 import { initialSession } from "./helpers/sessions";
 import { handleStart } from "./handlers/commands/start.handler";
 import configs from "../configs";
-import { MyContext } from "../types/context";
+import { MyContext } from "./types/context";
 import { getPaymentChequeHandler } from "./handlers/payment/cheque.handler";
 import { paymentApprovalHandler } from "./handlers/payment/approval.handler";
 import { paymentRejectionHandler } from "./handlers/payment/reject.handler";

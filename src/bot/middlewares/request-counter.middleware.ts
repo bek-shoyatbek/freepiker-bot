@@ -1,5 +1,5 @@
 import { NextFunction } from "grammy";
-import { MyContext } from "../../types/context";
+import { MyContext } from "../types/context";
 import { User } from "../../models/user.model";
 import { UserPlan } from "../../models/user-plan.model";
 import { IPlan } from "../../models/plan.model";

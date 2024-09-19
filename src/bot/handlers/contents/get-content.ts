@@ -2,7 +2,7 @@ import { RapidapiService } from "../../../downloaders/rapidapi/rapidapi.service"
 import { sendGroupNotificationMessage } from "../../helpers/api/send-group-notification-message";
 import { Content } from "../../interfaces/content.interface";
 import { localize } from "../../locales/localize";
-import { MyContext } from "../../../types/context";
+import { MyContext } from "../../types/context";
 import { i18n } from "../../locales/i18n";
 
 export async function getContentByLinkHandler(ctx: MyContext) {

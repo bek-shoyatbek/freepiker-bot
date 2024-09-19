@@ -1,6 +1,6 @@
 import { InlineKeyboard } from "grammy";
 import { Plan } from "../../../models/plan.model";
-import { MyContext } from "../../../types/context";
+import { MyContext } from "../../types/context";
 import { localize } from "../../locales/localize";
 import { i18n } from "../../locales/i18n";
 

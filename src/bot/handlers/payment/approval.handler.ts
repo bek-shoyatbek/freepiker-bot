@@ -2,7 +2,7 @@ import bot from "../..";
 import { Payment } from "../../../models/payment.model";
 import { UserPlan } from "../../../models/user-plan.model";
 import { User } from "../../../models/user.model";
-import { MyContext } from "../../../types/context";
+import { MyContext } from "../../types/context";
 import { localize } from "../../locales/localize";
 
 export const paymentApprovalHandler = async (ctx: MyContext) => {

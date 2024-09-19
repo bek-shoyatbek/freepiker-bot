@@ -1,4 +1,4 @@
-import { MyContext } from "../../../types/context";
+import { MyContext } from "../../types/context";
 import { localize } from "../../locales/localize";
 
 export const cancelPurchaseHandler = async (ctx: MyContext) => {

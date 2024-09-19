@@ -1,5 +1,5 @@
 import { Bot, GrammyError, HttpError } from "grammy";
-import { MyContext } from "../../../types/context";
+import { MyContext } from "../../types/context";
 
 export const catchGlobalBotErrors = (bot: Bot<MyContext>) => {
   bot.catch((err) => {

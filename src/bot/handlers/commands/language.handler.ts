@@ -1,4 +1,4 @@
-import { MyContext } from "../../../types/context";
+import { MyContext } from "../../types/context";
 import {
   generateMainKeyboard,
   languageMenu,
@@ -6,6 +6,7 @@ import {
 } from "../../constants/keyboards/main.keyboard";
 import { i18n } from "../../locales/i18n";
 import { localize } from "../../locales/localize";
+import { ENG, RU, UZ } from "../../constants/countries";
 
 export async function showLanguageMenu(ctx: MyContext) {
   await ctx.reply("Tilni tanlang / Choose your language / Выберите язык :", {
@@ -16,13 +17,13 @@ export async function showLanguageMenu(ctx: MyContext) {
 export async function changeLanguageHandler(ctx: MyContext) {
   // Update the language in the session based on user selection
   switch (ctx.message?.text) {
-    case "English":
+    case ENG:
       ctx.session.lang = "en";
       break;
-    case "O'zbek":
+    case UZ:
       ctx.session.lang = "uz";
       break;
-    case "Русский":
+    case RU:
       ctx.session.lang = "ru";
       break;
     default:

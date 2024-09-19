@@ -1,7 +1,8 @@
 import { Keyboard } from "grammy";
 import { localize } from "../../locales/localize";
 import { Menu } from "@grammyjs/menu";
-import { MyContext } from "../../../types/context";
+import { MyContext } from "../../types/context";
+import { ENG, RU, UZ } from "../countries";
 
 // Main menu keyboard
 export const generateMainKeyboard = (lang: "uz" | "en" | "ru") => {
@@ -21,17 +22,17 @@ export const generateMainKeyboard = (lang: "uz" | "en" | "ru") => {
 
 // Language selection menu
 export const languageMenu = new Menu<MyContext>("language")
-  .text("English 🇬🇧", async (ctx) => {
-    ctx.session.lang = "en";
-    await showMainMenu(ctx);
-    return ctx.menu.close();
-  })
-  .text("O'zbek 🇺🇿", async (ctx) => {
+  .text(UZ, async (ctx) => {
     ctx.session.lang = "uz";
     await showMainMenu(ctx);
     return ctx.menu.close();
   })
-  .text("Русский 🇷🇺", async (ctx) => {
+  .text(ENG, async (ctx) => {
+    ctx.session.lang = "en";
+    await showMainMenu(ctx);
+    return ctx.menu.close();
+  })
+  .text(RU, async (ctx) => {
     ctx.session.lang = "ru";
     await showMainMenu(ctx);
     return ctx.menu.close();

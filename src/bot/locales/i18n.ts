@@ -69,13 +69,13 @@ Tabriklaymiz! 🎉`,
     chooseTariff: "Choose tariff: 📦",
     plans: `Choose tariff: 📦
 
-Basic- $1.49 / month
+Basic- 19 000 sum / month
 🔹 Ability to download 5 files every day.
 
-Standard- $2.27 / month (most preferred)
+Standard- 29 000 sum / month (most preferred)
 🔹 Ability to download 10 files every day.
 
-Premium- $3.05 / month
+Premium- 39 000 sum / month
 🔹 20 file downloads every day`,
     tariffConfirmation: (plan: string) => `You chose the ${plan}:`,
     price: (price: number) => `Price: ${price}`,
@@ -127,13 +127,13 @@ Congratulations! 🎉`,
     aboutUs: "ℹ️ О нас",
     chooseTariff: "Выберите тариф: 📦",
     cancelPurchase: "Покупка отменена",
-    plans: `Basic-19 000 сум / месяц
+    plans: `Basic- 19 000 сум / месяц
 ✔️ Возможность загрузки 5 файлов каждый день.
 
-Стандарт-29 000 сум / месяц (наиболее предпочтительный)
+Стандарт- 29 000 сум / месяц (наиболее предпочтительный)
 ✔️ Возможность загрузки 10 файлов каждый день.
 
-Премиум-39 000 сум / месяц
+Премиум- 39 000 сум / месяц
 ✔️ Возможность загрузки 20 файлов каждый день`,
     tariffConfirmation: (plan: string) => `Вы выбрали ${plan} тариф:`,
     price: (price: number) => `Цена: ${price}`,

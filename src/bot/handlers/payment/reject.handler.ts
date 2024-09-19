@@ -1,7 +1,7 @@
 import bot from "../..";
 import { Payment } from "../../../models/payment.model";
 import { User } from "../../../models/user.model";
-import { MyContext } from "../../../types/context";
+import { MyContext } from "../../types/context";
 import { localize } from "../../locales/localize";
 
 export const paymentRejectionHandler = async (ctx: MyContext) => {

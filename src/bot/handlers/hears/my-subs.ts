@@ -1,7 +1,7 @@
 import { IPlan } from "../../../models/plan.model";
 import { UserPlan } from "../../../models/user-plan.model";
 import { User } from "../../../models/user.model";
-import { MyContext } from "../../../types/context";
+import { MyContext } from "../../types/context";
 import { i18n } from "../../locales/i18n";
 import { localize } from "../../locales/localize";
 

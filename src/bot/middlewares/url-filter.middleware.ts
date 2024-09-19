@@ -1,6 +1,6 @@
 import { MiddlewareFn } from "grammy";
 import { localize } from "../locales/localize";
-import { MyContext } from "../../types/context";
+import { MyContext } from "../types/context";
 
 const freepikPremiumFilter: MiddlewareFn<MyContext> = async (
   ctx: MyContext,

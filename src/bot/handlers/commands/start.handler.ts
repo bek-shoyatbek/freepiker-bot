@@ -1,5 +1,5 @@
 import { User } from "../../../models/user.model";
-import { MyContext } from "../../../types/context";
+import { MyContext } from "../../types/context";
 import { localize } from "../../locales/localize";
 import { showLanguageMenu } from "./language.handler";
 

@@ -4,7 +4,7 @@ import configs from "../../../configs";
 import { Payment } from "../../../models/payment.model";
 import { Plan } from "../../../models/plan.model";
 import { User } from "../../../models/user.model";
-import { MyContext } from "../../../types/context";
+import { MyContext } from "../../types/context";
 import { localize } from "../../locales/localize";
 
 export const getPaymentChequeHandler = async (ctx: MyContext) => {
