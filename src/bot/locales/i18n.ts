@@ -1,5 +1,7 @@
 export const i18n = {
   uz: {
+    greet: (name: string) => `Salom, ${name}!
+Iltimos, file linkini yuboring 👇`,
     welcome: "Xush kelibsiz! Ro'yxatdan muvaffaqiyatli o'tdingiz. ✅",
     welcomeBack: "Xush kelibsiz!",
     chooseOption: "Iltimos, birini tanlang:",
@@ -56,6 +58,8 @@ Tabriklaymiz! 🎉`,
       "Siz bepul sinovdan foydalanib bo'ldingiz. Iltimos, xizmatdan foydalanishda davom etish uchun tarif sotib oling.",
   },
   en: {
+    greet: (name: string) => `Hi, ${name}!
+Please, Send freepik premium content link here:`,
     welcome: "Welcome! You have successfully registered. ✅",
     welcomeBack: "Welcome!",
     chooseLanguage: "Choose language: ",
@@ -117,6 +121,8 @@ Congratulations! 🎉`,
       "You've already used your free trial. Please purchase a plan to continue using the service.",
   },
   ru: {
+    greet: (name: string) => `Привет, ${name}!
+Пожалуйста, отправьте ссылку на freepik premium контент:`,
     welcome: "Добро пожаловать! Вы успешно зарегистрировались. ✅",
     welcomeBack: "Добро пожаловать!",
     chooseLanguage: "Выберите язык: ",
@@ -179,7 +185,7 @@ Congratulations! 🎉`,
 };
 
 export const generalMessages = {
-  greet: (name: string) => `Salom, ${name}!
+  greetWithNewUser: (name: string) => `Salom, ${name}!
 
   Sizda 1 ta premium file yuklab olish imkoniyati taqdim etildi 🥳
   
