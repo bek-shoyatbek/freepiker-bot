@@ -2,7 +2,7 @@ import { MiddlewareFn } from "grammy";
 import { localize } from "../locales/localize";
 import { MyContext } from "../types/context";
 
-const freepikPremiumFilter: MiddlewareFn<MyContext> = async (
+export const freepikPremiumFilter: MiddlewareFn<MyContext> = async (
   ctx: MyContext,
   next
 ) => {
@@ -14,7 +14,8 @@ const freepikPremiumFilter: MiddlewareFn<MyContext> = async (
 
     if (urls) {
       const isValidUrl = urls.every((url) => {
-        const freepikPremiumRegex = /^https:\/\/www\.freepik\.com\/premium-.*$/;
+        const freepikPremiumRegex =
+          /^https?:\/\/(?:[\w-]+\.)*freepik\.(?:\w{2,3})(?:\.\w{2,3})?\/.*premium.*/i;
         return freepikPremiumRegex.test(url);
       });
 
@@ -32,5 +33,3 @@ const freepikPremiumFilter: MiddlewareFn<MyContext> = async (
     await next();
   }
 };
-
-export default freepikPremiumFilter;

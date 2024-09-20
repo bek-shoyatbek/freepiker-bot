@@ -23,7 +23,7 @@ import {
   showLanguageMenu,
 } from "./handlers/commands/language.handler";
 import { catchGlobalBotErrors } from "./helpers/errors/global-error.handler";
-import freepikPremiumFilter from "./middlewares/url-filter.middleware";
+import { freepikPremiumFilter } from "./middlewares/url-filter.middleware";
 
 const botToken = verifyToken(configs.BOT_TOKEN);
 
