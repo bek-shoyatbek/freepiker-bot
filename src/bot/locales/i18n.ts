@@ -9,6 +9,9 @@ Sizda 1 ta premium file yuklab olish imkoniyati taqdim etildi 🥳
 Iltimos, file linkini yuboring 👇`,
     welcome: "Xush kelibsiz! Ro'yxatdan muvaffaqiyatli o'tdingiz. ✅",
     welcomeBack: "Xush kelibsiz!",
+    supportRespondText: `Agar biron bir muammoga duch kelsangiz yoki taklifingiz bo'lsa, biz bilan bog'laning
+
+Aloqa: @leadercreador | @bek_shoyatbek`,
     chooseOption: "Iltimos, birini tanlang:",
     chooseLanguage: "Tilni tanlang: ",
     languageSet: "Til muvaffaqiyatli o'rnatildi",
@@ -78,6 +81,9 @@ You have been given a free download chance to download premium content 🥳
 Please, Send freepik premium content link here:`,
     welcome: "Welcome! You have successfully registered. ✅",
     welcomeBack: "Welcome!",
+    supportRespondText: `If you encounter any problem or have a suggestion, feel free to contact us
+
+Contact: @leadercreador | @bek_shoyatbek`,
     chooseLanguage: "Choose language: ",
     languageSet: "Language set successfully",
     chooseOption: "Please choose one:",
@@ -153,6 +159,9 @@ Congratulations! 🎉`,
   `,
     welcome: "Добро пожаловать! Вы успешно зарегистрировались. ✅",
     welcomeBack: "Добро пожаловать!",
+    supportRespondText: `Если у вас возникнут какие-либо проблемы или у вас есть предложение, не стесняйтесь обращаться к нам.
+
+Контакт: @leadercreador | @bek_shoyatbek`,
     chooseLanguage: "Выберите язык: ",
     languageSet: "Язык установлен успешно",
     chooseOption: "Пожалуйста, выберите один из них:",
