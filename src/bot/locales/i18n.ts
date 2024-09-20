@@ -24,7 +24,7 @@ Aloqa: @leadercreador | @bek_shoyatbek`,
 
 Premium contentlar: https://t.me/freepiker24
 
-Biznig asosiy telegram bot: https://t.me/freepikerbot`,
+Biznig asosiy telegram bot: https://t.me/freepiker24bot`,
     chooseTariff: "Tarifni tanlang: 📦",
     plans: `Basic - 19 000 so‘m / oy
 🔹 Har kuni 5 ta fayl yuklab olish imkoniyati.
@@ -41,7 +41,11 @@ Premium - 39 000 so‘m / oy
     yes: "Ha",
     reject: "Rad etish",
     cancelPurchase: "Sotib olish bekor qilindi",
-    sendPaymentCheck: "Iltimos, to'lov chekingizni rasm formatida yuboring. 🧾",
+    sendPaymentCheck: `Iltimos, to'lov chekingizni rasm formatida yuboring. 🧾
+    
+💳 9860246602556606
+
+👤 Abduqahhorov Jahongir`,
     paymentProcessing: `To'lovingiz ko'rib chiqilmoqda.
 
 Tasdiqlangandan so'ng sizga xabar beramiz. ⏳`,
@@ -115,8 +119,11 @@ Premium- 39 000 sum / month
     continueSubscription: "Continue subscribing?",
     yes: "Yes",
     reject: "Rejection",
-    sendPaymentCheck:
-      "Please send your payment check in picture or PDF format. 🧾",
+    sendPaymentCheck: `Please send your payment check in picture or PDF format. 🧾
+      
+💳 9860246602556606
+
+👤 Abduqahhorov Jahongir`,
     paymentProcessing: `Your payment is being considered.
       
 We will let you know after confirmation. ⏳`,
@@ -191,8 +198,11 @@ Congratulations! 🎉`,
     continueSubscription: "Продолжаете делать покупки?",
     yes: "Да",
     reject: "Отказ",
-    sendPaymentCheck:
-      "Пожалуйста, пришлите ваш платежный чек в виде картинки или в формате PDF. 🧾",
+    sendPaymentCheck: `Пожалуйста, пришлите ваш платежный чек в виде картинки или в формате PDF. 🧾
+      
+💳 9860246602556606
+
+👤 Abduqahhorov Jahongir`,
     paymentProcessing: `Ваш платеж рассматривается.
       
 Мы сообщим вам об этом после подтверждения. ⏳`,
