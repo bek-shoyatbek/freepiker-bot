@@ -4,7 +4,6 @@ import {
   languageMenu,
   showMainMenu,
 } from "../../constants/keyboards/main.keyboard";
-import { i18n } from "../../locales/i18n";
 import { localize } from "../../locales/localize";
 import { ENG, RU, UZ } from "../../constants/countries";
 

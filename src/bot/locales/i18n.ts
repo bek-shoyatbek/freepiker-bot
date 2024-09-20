@@ -1,6 +1,11 @@
 export const i18n = {
   uz: {
-    greet: (name: string) => `Salom, ${name}!
+    greetWithOldUser: (name: string) => `Salom, ${name}!
+Iltimos, file linkini yuboring 👇`,
+    greetWithNewUser: (name: string) => `Salom, ${name}!
+
+Sizda 1 ta premium file yuklab olish imkoniyati taqdim etildi 🥳
+  
 Iltimos, file linkini yuboring 👇`,
     welcome: "Xush kelibsiz! Ro'yxatdan muvaffaqiyatli o'tdingiz. ✅",
     welcomeBack: "Xush kelibsiz!",
@@ -10,7 +15,13 @@ Iltimos, file linkini yuboring 👇`,
     viewTariffs: "📊 Tarif Rejalarini Ko'rish",
     mySubscription: "📜 Mening Obunam",
     help: "☎️ Yordam",
-    aboutUs: "ℹ️ Biz haqimizda",
+    aboutUs: "ℹ️ Biz Haqimizda",
+    aboutUsRespondText: `ℹ️ Endi siz Freepik.com saytidan premium resurslarni oson, tez va hamyonbop narxlarda yuklab olishingiz mumkin! 
+✅ Birinchi premium faylni BEPUL yuklab oling!
+
+Premium contentlar: https://t.me/freepiker24
+
+Biznig asosiy telegram bot: https://t.me/freepikerbot`,
     chooseTariff: "Tarifni tanlang: 📦",
     plans: `Basic - 19 000 so‘m / oy
 🔹 Har kuni 5 ta fayl yuklab olish imkoniyati.
@@ -58,7 +69,12 @@ Tabriklaymiz! 🎉`,
       "Siz bepul sinovdan foydalanib bo'ldingiz. Iltimos, xizmatdan foydalanishda davom etish uchun tarif sotib oling.",
   },
   en: {
-    greet: (name: string) => `Hi, ${name}!
+    greetWithOldUser: (name: string) => `Hi, ${name}!
+Please, Send freepik premium content link here:`,
+    greetWithNewUser: (name: string) => `Hi, ${name}!
+  
+You have been given a free download chance to download premium content 🥳
+  
 Please, Send freepik premium content link here:`,
     welcome: "Welcome! You have successfully registered. ✅",
     welcomeBack: "Welcome!",
@@ -69,7 +85,13 @@ Please, Send freepik premium content link here:`,
     mySubscription: "📜 My Subscription",
     cancelPurchase: "Purchase canceled",
     help: "☎️ Help",
-    aboutUs: "ℹ️ About us",
+    aboutUs: "ℹ️ About Us",
+    aboutUsRespondText: `Now you can download premium resources fast and easily from  Freepik.com at affordable prices! 
+✅ Download the first premium file for FREE!
+
+Premium contents: https://t.me/freepiker24
+
+Our telegram bot: https://t.me/freepiker24bot`,
     chooseTariff: "Choose tariff: 📦",
     plans: `Choose tariff: 📦
 
@@ -121,8 +143,14 @@ Congratulations! 🎉`,
       "You've already used your free trial. Please purchase a plan to continue using the service.",
   },
   ru: {
-    greet: (name: string) => `Привет, ${name}!
-Пожалуйста, отправьте ссылку на freepik premium контент:`,
+    greetWithOldUser: (name: string) => `Привет, ${name}!
+Пожалуйста, отправьте ссылку на премиум контент:`,
+    greetWithNewUser: (name: string) => `Привет, ${name}!
+      
+Вы получили шанс загрузить премиум контент без регистрации 🥳
+  
+Пожалуйста, отправьте ссылку на премиум контент:
+  `,
     welcome: "Добро пожаловать! Вы успешно зарегистрировались. ✅",
     welcomeBack: "Добро пожаловать!",
     chooseLanguage: "Выберите язык: ",
@@ -132,6 +160,12 @@ Congratulations! 🎉`,
     mySubscription: "📜 Моя подписка",
     help: "☎️ Справка",
     aboutUs: "ℹ️ О нас",
+    aboutUsRespondText: `ℹ️ Теперь вы можете быстро и легко загружать ресурсы премиум-класса с сайта Freepik.com по доступным ценам! 
+✅ Скачайте первый файл премиум-класса бесплатно!
+
+Премиум-контент: https://t.me/freepiker24
+
+Наш телеграм-бот: https://t.me/freepiker24bot`,
     chooseTariff: "Выберите тариф: 📦",
     cancelPurchase: "Покупка отменена",
     plans: `Basic- 19 000 сум / месяц
@@ -182,32 +216,4 @@ Congratulations! 🎉`,
     freeTrialAlreadyUsed:
       "Вы уже использовали свою бесплатную пробную версию. Пожалуйста, приобретите тарифный план, чтобы продолжить пользоваться сервисом.",
   },
-};
-
-export const generalMessages = {
-  greetWithNewUser: (name: string) => `Salom, ${name}!
-
-  Sizda 1 ta premium file yuklab olish imkoniyati taqdim etildi 🥳
-  
-  Iltimos, file linkini yuboring 👇
-  ----------------------------------------------------------------
-  Hi, ${name}!
-  
-  You have been given a free download chance to download premium content 🥳
-  
-  Please, Send freepik premium content link here:
-  
-  ----------------------------------------------------------------
-  Привет, ${name}!
-      
-  Вы получили шанс загрузить премиум контент без регистрации 🥳
-  
-  Пожалуйста, отправьте ссылку на премиум контент:
-  `,
-  greetWithOldUser: (name: string) => `
-   Salom, ${name}!
------------------
-  Hi, ${name}!
------------------
-  Привет, ${name}!`,
 };

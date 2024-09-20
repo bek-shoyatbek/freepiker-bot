@@ -5,5 +5,6 @@ export function initialSession(): SessionData {
   return {
     lang: "en",
     subscribed: false,
+    onStart: true,
   };
 }
