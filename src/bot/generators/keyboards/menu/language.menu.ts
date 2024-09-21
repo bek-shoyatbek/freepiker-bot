@@ -1,7 +1,7 @@
 import { Menu } from "@grammyjs/menu";
-import { MyContext } from "../../types/context";
-import { ENG, RU, UZ } from "../../constants/countries";
-import { i18n } from "../../locales/i18n";
+import { MyContext } from "../../../types/context";
+import { ENG, RU, UZ } from "../../../constants/countries";
+import { i18n } from "../../../locales/i18n";
 import { showMainMenu } from "./main.menu";
 
 // Language selection menu

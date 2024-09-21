@@ -4,7 +4,7 @@ import { User } from "../../models/user.model";
 import { UserPlan } from "../../models/user-plan.model";
 import { IPlan } from "../../models/plan.model";
 import { localize } from "../locales/localize";
-import { generateMainKeyboard } from "../keyboards/main.keyboard";
+import { generateMainKeyboard } from "../generators/keyboards/main.keyboard";
 
 export async function trackRequest(ctx: MyContext, next: NextFunction) {
   const user = await User.findOne({ telegramId: ctx.from?.id.toString() });

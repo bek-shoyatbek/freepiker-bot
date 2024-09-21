@@ -1,5 +1,5 @@
 import { Keyboard } from "grammy";
-import { localize } from "../locales/localize";
+import { localize } from "../../locales/localize";
 
 export const generateMainKeyboard = (lang: "uz" | "en" | "ru") => {
   const viewPlansText = localize("viewTariffs", lang);
