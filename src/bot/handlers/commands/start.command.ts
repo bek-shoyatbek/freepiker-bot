@@ -1,6 +1,6 @@
 import { User } from "../../../models/user.model";
 import { MyContext } from "../../types/context";
-import { showLanguageMenu } from "./language.handler";
+import { showLanguageMenu } from "./language.command";
 
 export async function handleStart(ctx: MyContext) {
   ctx.session.onStart = true;

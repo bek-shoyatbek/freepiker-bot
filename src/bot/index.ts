@@ -2,7 +2,7 @@ import { Bot, session } from "grammy";
 import { verifyToken } from "./helpers/validators/verify-token";
 import { getContentByLinkHandler } from "./handlers/contents/get-content";
 import { initialSession } from "./helpers/sessions";
-import { handleStart } from "./handlers/commands/start.handler";
+import { handleStart } from "./handlers/commands/start.command";
 import configs from "../configs";
 import { MyContext } from "./types/context";
 import { getPaymentChequeHandler } from "./handlers/payment/cheque.handler";
@@ -16,14 +16,14 @@ import { selectPlanHandler } from "./handlers/callbacks/select-plan";
 import { cancelPurchaseHandler } from "./handlers/callbacks/cancel-purchase";
 import { confirmPurchaseHandler } from "./handlers/callbacks/confirm-purchase";
 import { trackRequest } from "./middlewares/request-counter.middleware";
-import { languageMenu } from "./constants/keyboards/main.keyboard";
 import { localize } from "./locales/localize";
 import {
   changeLanguageHandler,
   showLanguageMenu,
-} from "./handlers/commands/language.handler";
+} from "./handlers/commands/language.command";
 import { catchGlobalBotErrors } from "./helpers/errors/global-error.handler";
 import { freepikPremiumFilter } from "./middlewares/url-filter.middleware";
+import { languageMenu } from "./keyboards/menu/language.menu";
 
 const botToken = verifyToken(configs.BOT_TOKEN);
 

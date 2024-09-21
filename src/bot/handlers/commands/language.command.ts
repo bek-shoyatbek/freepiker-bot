@@ -1,11 +1,9 @@
 import { MyContext } from "../../types/context";
-import {
-  generateMainKeyboard,
-  languageMenu,
-  showMainMenu,
-} from "../../constants/keyboards/main.keyboard";
+import { generateMainKeyboard } from "../../keyboards/main.keyboard";
 import { localize } from "../../locales/localize";
 import { ENG, RU, UZ } from "../../constants/countries";
+import { languageMenu } from "../../keyboards/menu/language.menu";
+import { showMainMenu } from "../../keyboards/menu/main.menu";
 
 export async function showLanguageMenu(ctx: MyContext) {
   await ctx.reply("Tilni tanlang / Choose your language / Выберите язык :", {

@@ -1,25 +1,8 @@
-import { Keyboard } from "grammy";
-import { localize } from "../../locales/localize";
 import { Menu } from "@grammyjs/menu";
 import { MyContext } from "../../types/context";
-import { ENG, RU, UZ } from "../countries";
+import { ENG, RU, UZ } from "../../constants/countries";
 import { i18n } from "../../locales/i18n";
-
-// Main menu keyboard
-export const generateMainKeyboard = (lang: "uz" | "en" | "ru") => {
-  const viewPlansText = localize("viewTariffs", lang);
-  const supportText = localize("help", lang);
-  const mySubsText = localize("mySubscription", lang);
-  const aboutText = localize("aboutUs", lang);
-  return new Keyboard()
-    .text(viewPlansText)
-    .text(supportText)
-    .row()
-    .text(mySubsText)
-    .text(aboutText)
-    .resized()
-    .oneTime(true);
-};
+import { showMainMenu } from "./main.menu";
 
 // Language selection menu
 export const languageMenu = new Menu<MyContext>("language")
@@ -83,9 +66,3 @@ export const languageMenu = new Menu<MyContext>("language")
     await showMainMenu(ctx);
     return ctx.menu.close();
   });
-
-export async function showMainMenu(ctx: MyContext) {
-  await ctx.reply("Menu", {
-    reply_markup: generateMainKeyboard(ctx.session.lang),
-  });
-}

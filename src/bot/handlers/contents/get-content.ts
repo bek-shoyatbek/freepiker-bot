@@ -1,4 +1,4 @@
-import { RapidapiService } from "../../../downloaders/rapidapi/rapidapi.service";
+import { RapidapiService } from "../../../services/rapidapi/rapidapi.service";
 import { sendGroupNotificationMessage } from "../../helpers/api/send-group-notification-message";
 import { Content } from "../../interfaces/content.interface";
 import { localize } from "../../locales/localize";
