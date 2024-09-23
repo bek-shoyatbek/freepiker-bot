@@ -35,7 +35,11 @@ export async function getContentByLinkHandler(ctx: MyContext) {
     { parse_mode: "HTML" }
   );
 
-  const content: Content = { pageLink: linkToDownload, downloadLink, filename };
-  await sendGroupNotificationMessage(content, message);
+  const content: Content = {
+    pageLink: linkToDownload,
+    downloadLink,
+    filename,
+  };
+  await sendGroupNotificationMessage(content);
   return;
 }

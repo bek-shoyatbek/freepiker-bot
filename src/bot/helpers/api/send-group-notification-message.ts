@@ -4,7 +4,7 @@ import bot from "../..";
 import { generateGroupNotificationMessage } from "../../generators/notifications/group.notification";
 export async function sendGroupNotificationMessage(
   content: Content,
-  message: string
+  message?: string
 ) {
   try {
     const notificationMessage = generateGroupNotificationMessage(

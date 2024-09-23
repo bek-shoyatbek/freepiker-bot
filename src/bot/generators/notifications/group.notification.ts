@@ -4,12 +4,12 @@ import { generateHashTagFromFilename } from "../hashtag.generator";
 
 export function generateGroupNotificationMessage(
   content: Content,
-  message: string
+  message?: string
 ) {
   const fullText = `
        Page link: <a href="${content.pageLink}">Link</a>
-       ${message}
-  ${generateHashTagFromFilename(content.filename)}
+
+${generateHashTagFromFilename(content.filename)}
        
   Our bot: ${configs.BOT_USERNAME}
   Our free content: ${configs.GROUP_USERNAME}
