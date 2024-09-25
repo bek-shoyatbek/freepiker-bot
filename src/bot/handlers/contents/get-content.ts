@@ -1,9 +1,10 @@
 import { RapidapiService } from "../../../services/rapidapi/rapidapi.service";
-import { sendGroupNotificationMessage } from "../../helpers/api/send-group-notification-message";
 import { Content } from "../../interfaces/content.interface";
 import { localize } from "../../locales/localize";
 import { MyContext } from "../../types/context";
 import { i18n } from "../../locales/i18n";
+import { generateGroupNotificationMessage } from "../../generators/notifications/group.notification";
+import { ContentNotificationManager } from "../../api/notifications/content-notification.service";
 
 export async function getContentByLinkHandler(ctx: MyContext) {
   const processingMessage = await ctx.reply(
@@ -40,6 +41,15 @@ export async function getContentByLinkHandler(ctx: MyContext) {
     downloadLink,
     filename,
   };
-  await sendGroupNotificationMessage(content);
+
+  const notificationMessage = generateGroupNotificationMessage(
+    content,
+    message
+  );
+
+  await ContentNotificationManager.sendGroupNotificationMessage(
+    notificationMessage
+  );
+
   return;
 }
