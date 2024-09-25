@@ -11,8 +11,8 @@ export function generateGroupNotificationMessage(
 
 ${generateHashTagFromFilename(content.filename)}
        
-  Our bot: ${configs.BOT_USERNAME}
-  Our free content: ${configs.GROUP_USERNAME}
+Our bot: ${configs.BOT_USERNAME}
+Our free content: ${configs.GROUP_USERNAME}
       `;
 
   return fullText;
