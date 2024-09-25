@@ -34,7 +34,5 @@ export const paymentApprovalHandler = async (ctx: MyContext) => {
 
   const userChatId = user.telegramId;
   const approvedMessage = localize("paymentConfirmed", ctx.session.lang);
-  console.log("lang", ctx.session.lang);
-  console.log("Approved message: ", approvedMessage);
   await bot.api.sendMessage(userChatId, approvedMessage);
 };

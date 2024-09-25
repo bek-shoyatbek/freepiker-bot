@@ -43,7 +43,9 @@ export const getPaymentChequeHandler = async (ctx: MyContext) => {
     .text("Reject", `reject_${payment._id}`);
 
   await bot.api.sendPhoto(configs.ADMIN_CHANNEL_ID!, fileId, {
-    caption: `New payment:\nUser: ${user.name}\nPlan: ${plan.title}\nAmount: $${plan.price}`,
+    caption: `New payment:\nUser: ${user?.username ?? user.name}\nPlan: ${
+      plan.title
+    }\nAmount: ${plan.price}`,
     reply_markup: keyboard,
   });
 
