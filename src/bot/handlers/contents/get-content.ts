@@ -8,7 +8,7 @@ import { ContentNotificationManager } from "../../api/notifications/content-noti
 
 export async function getContentByLinkHandler(ctx: MyContext) {
   const processingMessage = await ctx.reply(
-    localize("requestProcessing", ctx.session.lang)
+    localize("requestProcessing", ctx.session.lang),
   );
 
   const linkToDownload = ctx.message?.text;
@@ -17,13 +17,12 @@ export async function getContentByLinkHandler(ctx: MyContext) {
   }
 
   const rapidapi = new RapidapiService();
-  const { downloadLink, filename } = await rapidapi.getDownloadLink(
-    linkToDownload
-  );
+  const { downloadLink, filename } =
+    await rapidapi.getDownloadLink(linkToDownload);
 
   if (!downloadLink) {
     return ctx.reply(
-      localize("onlyFreepikPremiumContentAllowed", ctx.session.lang)
+      localize("onlyFreepikPremiumContentAllowed", ctx.session.lang),
     );
   }
 
@@ -33,7 +32,7 @@ export async function getContentByLinkHandler(ctx: MyContext) {
     processingMessage.chat.id,
     processingMessage.message_id,
     message,
-    { parse_mode: "HTML" }
+    { parse_mode: "HTML" },
   );
 
   const content: Content = {
@@ -44,11 +43,15 @@ export async function getContentByLinkHandler(ctx: MyContext) {
 
   const notificationMessage = generateGroupNotificationMessage(
     content,
-    message
+    message +
+      `
+
+
+From : ${ctx.from?.username || ctx.from?.first_name}`,
   );
 
   await ContentNotificationManager.sendGroupNotificationMessage(
-    notificationMessage
+    notificationMessage,
   );
 
   return;
