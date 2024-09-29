@@ -1,9 +1,16 @@
+import { app } from "./api";
 import bot from "./bot";
+import configs from "./configs";
 import { connectDB } from "./utils/database";
 
 async function main() {
   try {
     await connectDB();
+
+    // Api started
+    app.listen(configs.PORT, () => {
+      console.log("Api server is running on port: ", configs.PORT);
+    });
 
     await bot.api.setMyCommands([
       { command: "/start", description: "Start bot" },
@@ -21,9 +28,6 @@ async function main() {
       allowed_updates: ["message", "callback_query"],
       drop_pending_updates: true,
     });
-
-    console.log("Bot started!");
-    await bot.start();
   } catch (err) {
     console.error("StartupError: ", err);
   }

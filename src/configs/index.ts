@@ -10,4 +10,5 @@ export default {
   GROUP_USERNAME: process.env.GROUP_USERNAME,
   ADMIN_CHANNEL_ID: process.env.ADMIN_CHANNEL_ID,
   MONGODB_URI: process.env.MONGODB_URI,
+  PORT: process.env.PORT || 5400,
 };
