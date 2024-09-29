@@ -3,6 +3,11 @@ import { MessageController } from "./message.controller";
 
 export const MessageRouter = Router();
 
+MessageRouter.post(
+  "/sendMessage",
+  MessageController.sendMessage as unknown as RequestHandler,
+);
+
 MessageRouter.get(
   "/",
   MessageController.getAllMessages as unknown as RequestHandler,

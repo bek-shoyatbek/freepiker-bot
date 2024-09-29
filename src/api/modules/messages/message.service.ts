@@ -1,6 +1,36 @@
+import bot from "../../../bot";
 import { IMessage, Message } from "../../../models/message.model";
 
 export class MessageService {
+  static async sendMessage(userTelegramIds: string[], messageId: string) {
+    try {
+      const message = await MessageService.getMessageById(messageId); // Assume this method fetches the message content
+      const chunkSize = 30; // Maximum number of messages per second
+      const delay = 1000; // 1 second delay between chunks
+
+      for (let i = 0; i < userTelegramIds.length; i += chunkSize) {
+        const chunk = userTelegramIds.slice(i, i + chunkSize);
+        const promises = chunk.map((userId) =>
+          bot.api.sendMessage(userId, message!.text),
+        );
+
+        await Promise.all(promises);
+
+        if (i + chunkSize < userTelegramIds.length) {
+          await new Promise((resolve) => setTimeout(resolve, delay));
+        }
+      }
+
+      console.log("All messages sent successfully");
+    } catch (err) {
+      console.error("Error sending messages:", err);
+    }
+  }
+
+  static async getMessageById(messageId: string) {
+    return await Message.findById(messageId);
+  }
+
   static async getAll() {
     try {
       const messages = await Message.find();
@@ -28,16 +58,17 @@ export class MessageService {
       if (!oldMessage) {
         throw new Error("Message with id not found");
       }
+      console.log("message", message);
 
       const messages = await Message.updateOne(
         { _id: messageId },
         {
-          ...oldMessage,
-          ...message,
+          title: message?.title || oldMessage.title,
+          text: message?.text || oldMessage.text,
         },
       );
 
-      return messages;
+      return "Message updated";
     } catch (err) {
       console.error(err);
       throw new Error();

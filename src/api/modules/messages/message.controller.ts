@@ -2,6 +2,25 @@ import { Request, Response } from "express";
 import { MessageService } from "./message.service";
 
 export class MessageController {
+  static async sendMessage(req: Request, res: Response) {
+    const userIds = req.body?.userIds;
+    const messageId = req.body?.messageId;
+
+    if (!userIds || !messageId) {
+      return res.status(400).json({
+        message: "User ids or messageId is invalid!",
+        data: [],
+      });
+    }
+
+    const result = await MessageService.sendMessage(userIds, messageId);
+
+    return res.status(200).json({
+      message: "Messages fetched successfully",
+      data: result,
+    });
+  }
+
   static async getAllMessages(req: Request, res: Response) {
     const messages = await MessageService.getAll();
 
@@ -48,7 +67,8 @@ export class MessageController {
         data: [],
       });
     }
-    return res.status(400).json({
+
+    return res.status(200).json({
       message: "Messages updated",
       data: updatedResult,
     });
