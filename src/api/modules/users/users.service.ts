@@ -22,11 +22,13 @@ export class UserService {
       }
       const userPayments = await Payment.find({ userId: user?._id });
       const userPlans = await UserPlan.find({ userId: user?._id });
+      console.log("userPlans: ", userPlans);
       const userDetails = {
         user: user,
         payments: userPayments,
         plans: userPlans,
       };
+
       return userDetails;
     } catch (err) {
       console.error("UserServiceError: ", err);
