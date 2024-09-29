@@ -1,6 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
+import { UsersRouter } from "./modules/users/users.routes";
 
 export const app = express();
 
@@ -15,3 +16,5 @@ app.get("/hello", async (req, res) => {
     data: [],
   });
 });
+
+app.use("/users", UsersRouter);
