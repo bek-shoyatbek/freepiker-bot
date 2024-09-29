@@ -11,4 +11,6 @@ export default {
   ADMIN_CHANNEL_ID: process.env.ADMIN_CHANNEL_ID,
   MONGODB_URI: process.env.MONGODB_URI,
   PORT: process.env.PORT || 5400,
+  AUTH_USERNAME: process.env.AUTH_USERNAME,
+  AUTH_PASSWORD: process.env.AUTH_PASSWORD,
 };
