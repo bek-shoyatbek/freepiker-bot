@@ -12,6 +12,10 @@ export async function getContentByLinkHandler(ctx: MyContext) {
   );
 
   const linkToDownload = ctx.message?.text;
+  console.log(
+    `from: ${ctx.from?.username || ctx.from?.first_name} \ndownloadLink: ${linkToDownload}`,
+  );
+
   if (!linkToDownload) {
     return ctx.reply(localize("inlivalidLink", ctx.session.lang));
   }
