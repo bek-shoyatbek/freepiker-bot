@@ -25,6 +25,7 @@ import { catchGlobalBotErrors } from "./helpers/errors/global-error.handler";
 import { freepikPremiumFilter } from "./middlewares/url-filter.middleware";
 import { languageMenu } from "./generators/keyboards/menu/language.menu";
 import { saveUsernameIfDoesExist } from "./middlewares/save-username.middleware";
+import { checkPlanExpiry } from "./middlewares/check-plan-expiry.middleware";
 
 const botToken = verifyToken(configs.BOT_TOKEN);
 
@@ -82,6 +83,12 @@ bot.callbackQuery(/approve_(.+)/, paymentApprovalHandler);
 
 bot.callbackQuery(/reject_(.+)/, paymentRejectionHandler);
 
-bot.on("::url", freepikPremiumFilter, trackRequest, getContentByLinkHandler);
+bot.on(
+  "::url",
+  freepikPremiumFilter,
+  checkPlanExpiry,
+  trackRequest,
+  getContentByLinkHandler,
+);
 
 export default bot;
