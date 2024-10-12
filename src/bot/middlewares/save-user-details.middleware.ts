@@ -8,7 +8,6 @@ export async function saveUserDetailsIfDoesExist(
 ) {
   const chat = await ctx.getChat();
   const userBirthday = chat?.birthdate;
-  console.log("User birthdate: ", userBirthday);
 
   const user = await User.findOne({ telegramId: ctx.from?.id.toString() });
   const username = ctx.from?.username;

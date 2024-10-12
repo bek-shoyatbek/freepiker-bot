@@ -5,6 +5,8 @@ import { MyContext } from "../../types/context";
 import { i18n } from "../../locales/i18n";
 import { generateGroupNotificationMessage } from "../../generators/notifications/group.notification";
 import { ContentNotificationManager } from "../../api/notifications/content-notification.service";
+import { freepikService } from "../../../services/freepik-api";
+import { isFreepikProvider } from "../../../utils/provider";
 
 export async function getContentByLinkHandler(ctx: MyContext) {
   const processingMessage = await ctx.reply(
@@ -20,9 +22,30 @@ export async function getContentByLinkHandler(ctx: MyContext) {
     return ctx.reply(localize("inlivalidLink", ctx.session.lang));
   }
 
-  const rapidapi = new RapidapiService();
-  const { downloadLink, filename } =
-    await rapidapi.getDownloadLink(linkToDownload);
+  let downloadLink: string;
+  let filename: string;
+
+  if (isFreepikProvider()) {
+    const resourceId = freepikService.extractResourceId(linkToDownload);
+
+    if (!resourceId) {
+      return ctx.reply(
+        localize("onlyFreepikPremiumContentAllowed", ctx.session.lang),
+      );
+    }
+
+    const resource = await freepikService.downloadResource(resourceId);
+
+    downloadLink = resource.downloadLink;
+    filename = resource.filename;
+  } else {
+    const rapidapi = new RapidapiService();
+    const resource =
+      await rapidapi.getDownloadLink(linkToDownload);
+
+    downloadLink = resource.downloadLink;
+    filename = resource.filename;
+  }
 
   if (!downloadLink) {
     return ctx.reply(
@@ -48,7 +71,7 @@ export async function getContentByLinkHandler(ctx: MyContext) {
   const notificationMessage = generateGroupNotificationMessage(
     content,
     message +
-      `
+    `
 
 
 From : ${ctx.from?.username || ctx.from?.first_name}`,
