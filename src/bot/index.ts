@@ -24,8 +24,8 @@ import {
 import { catchGlobalBotErrors } from "./helpers/errors/global-error.handler";
 import { freepikPremiumFilter } from "./middlewares/url-filter.middleware";
 import { languageMenu } from "./generators/keyboards/menu/language.menu";
-import { saveUsernameIfDoesExist } from "./middlewares/save-username.middleware";
 import { checkPlanExpiry } from "./middlewares/check-plan-expiry.middleware";
+import { saveUserDetailsIfDoesExist } from "./middlewares/save-user-details.middleware";
 
 const botToken = verifyToken(configs.BOT_TOKEN);
 
@@ -37,7 +37,7 @@ catchGlobalBotErrors(bot);
 bot.use(session({ initial: initialSession }));
 
 bot.use(languageMenu);
-bot.use(saveUsernameIfDoesExist);
+bot.use(saveUserDetailsIfDoesExist);
 
 // Command handler for /start
 bot.command("start", handleStart);
