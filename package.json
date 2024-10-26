@@ -4,10 +4,9 @@
   "description": "With the help of freepiker-bot you can easily pick what you want from freepik.com",
   "main": "server.ts",
   "scripts": {
-    "start": "node dist/main.js",
-    "dev": "nodemon src/main.ts",
-    "build": "tsc",
-    "test": "jest"
+    "build": "swc src -d dist",
+    "dev": "swc src -d dist && node dist/index.js",
+    "watch": "swc src -d dist -w"
   },
   "keywords": [
     "freepik"
@@ -31,6 +30,9 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "@swc/cli": "^0.4.1-nightly.20240914",
+    "@swc/core": "^1.7.40",
+    "@swc/register": "^0.1.10",
     "@types/bcrypt": "^5.0.2",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
