@@ -6,7 +6,7 @@ import { i18n } from "../../locales/i18n";
 import { generateGroupNotificationMessage } from "../../generators/notifications/group.notification";
 import { ContentNotificationManager } from "../../api/notifications/content-notification.service";
 import { freepikService } from "../../../services/freepik-api";
-import { isFreepikProvider } from "../../../utils/provider";
+import { NotifyMe } from "../../api/notifications/notify-me";
 
 export async function getContentByLinkHandler(ctx: MyContext) {
   const processingMessage = await ctx.reply(
@@ -14,9 +14,6 @@ export async function getContentByLinkHandler(ctx: MyContext) {
   );
 
   const linkToDownload = ctx.message?.text;
-  console.log(
-    `from: ${ctx.from?.username || ctx.from?.first_name} \ndownloadLink: ${linkToDownload}`,
-  );
 
   if (!linkToDownload) {
     return ctx.reply(localize("inlivalidLink", ctx.session.lang));
@@ -25,31 +22,26 @@ export async function getContentByLinkHandler(ctx: MyContext) {
   let downloadLink: string;
   let filename: string;
 
-  if (isFreepikProvider()) {
+  const rapidapi = new RapidapiService();
+  const resource = await rapidapi.getDownloadLink(linkToDownload);
+
+  if (resource) {
+    downloadLink = resource?.downloadLink;
+    filename = resource?.filename;
+  } else {
     const resourceId = freepikService.extractResourceId(linkToDownload);
 
     if (!resourceId) {
-      return ctx.reply(
-        localize("onlyFreepikPremiumContentAllowed", ctx.session.lang),
-      );
+      console.log("resourceId couldn't extracted from the link");
+      return ctx.reply("Sorry internal error occured!");
     }
-
     const resource = await freepikService.downloadResource(resourceId);
 
     downloadLink = resource.downloadLink;
     filename = resource.filename;
-  } else {
-    const rapidapi = new RapidapiService();
-    const resource =
-      await rapidapi.getDownloadLink(linkToDownload);
 
-    downloadLink = resource.downloadLink;
-    filename = resource.filename;
-  }
-
-  if (!downloadLink) {
-    return ctx.reply(
-      localize("onlyFreepikPremiumContentAllowed", ctx.session.lang),
+    await NotifyMe.sendMessage(
+      "Hey, freepiker24bot is using FREEPIK Official api 🤑",
     );
   }
 
@@ -71,7 +63,7 @@ export async function getContentByLinkHandler(ctx: MyContext) {
   const notificationMessage = generateGroupNotificationMessage(
     content,
     message +
-    `
+      `
 
 
 From : ${ctx.from?.username || ctx.from?.first_name}`,

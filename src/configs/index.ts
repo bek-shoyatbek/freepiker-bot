@@ -17,4 +17,5 @@ export default {
   FREEPIK_API_KEY: process.env.FREEPIK_API_KEY,
   FREEPIK_API_URL: process.env.FREEPIK_API_URL,
   PROVIDER: process.env.PROVIDER,
+  ADMIN_CHAT_ID: process.env.ADMIN_CHAT_ID,
 };
