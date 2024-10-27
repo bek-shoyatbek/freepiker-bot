@@ -4,7 +4,6 @@ export interface IUser extends Document {
   telegramId: string;
   name: string;
   username?: string;
-  freeTrialUsed: boolean;
   freeTrialCount: number;
   from?: string;
   birthdate?: { day: number; month: number };
@@ -16,8 +15,7 @@ const UserSchema: Schema = new Schema({
   telegramId: { type: String, required: true, unique: true },
   name: { type: String, required: true },
   username: String,
-  freeTrialUsed: { type: Boolean, default: false },
-  freeTrialCount: { type: Number, default: 0 },
+  freeTrialCount: { type: Number, default: 1 },
   from: { type: String, required: false },
   birthdate: {
     day: { type: Number, required: false },
