@@ -26,10 +26,13 @@ import { freepikPremiumFilter } from "./middlewares/url-filter.middleware";
 import { languageMenu } from "./generators/keyboards/menu/language.menu";
 import { checkPlanExpiry } from "./middlewares/check-plan-expiry.middleware";
 import { saveUserDetailsIfDoesExist } from "./middlewares/save-user-details.middleware";
+import { autoRetry } from "@grammyjs/auto-retry";
 
 const botToken = verifyToken(configs.BOT_TOKEN);
 
 const bot = new Bot<MyContext>(botToken);
+
+bot.api.config.use(autoRetry());
 
 // Global error handler
 catchGlobalBotErrors(bot);

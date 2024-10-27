@@ -1,12 +1,13 @@
 import bot from "../../../bot";
+import { NotifyMe } from "../../../bot/api/notifications/notify-me";
 import { IMessage, Message } from "../../../models/message.model";
 
 export class MessageService {
   static async sendMessage(userTelegramIds: string[], messageId: string) {
     try {
-      const message = await MessageService.getMessageById(messageId); // Assume this method fetches the message content
+      const message = await MessageService.getMessageById(messageId);
       const chunkSize = 30; // Maximum number of messages per second
-      const delay = 1000; // 1 second delay between chunks
+      const delay = 1000 * 60; // 1 min delay between chunks
 
       for (let i = 0; i < userTelegramIds.length; i += chunkSize) {
         const chunk = userTelegramIds.slice(i, i + chunkSize);
@@ -21,7 +22,7 @@ export class MessageService {
         }
       }
 
-      console.log("All messages sent successfully");
+      await NotifyMe.sendMessage("All messages sent successfully");
     } catch (err) {
       console.error("Error sending messages:", err);
     }
