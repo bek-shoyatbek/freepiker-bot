@@ -31,8 +31,7 @@ export class UserPlanService {
 
   static async deleteUserPlan(userPlanId: string) {
     try {
-      await UserPlan.findByIdAndDelete(userPlanId);
-
+      await UserPlan.deleteOne({ _id: userPlanId });
       return true;
     } catch (err) {
       console.error("PaymentServiceError: couldn't delete payment, ", err);
