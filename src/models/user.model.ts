@@ -5,6 +5,7 @@ export interface IUser extends Document {
   name: string;
   username?: string;
   freeTrialUsed: boolean;
+  freeTrialCount: number;
   from?: string;
   birthdate?: { day: number; month: number };
   dailyRequestsCount: number;
@@ -16,6 +17,7 @@ const UserSchema: Schema = new Schema({
   name: { type: String, required: true },
   username: String,
   freeTrialUsed: { type: Boolean, default: false },
+  freeTrialCount: { type: Number, default: 0 },
   from: { type: String, required: false },
   birthdate: {
     day: { type: Number, required: false },
