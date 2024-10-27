@@ -1,8 +1,7 @@
-import { IPayment, Payment } from "../../../models/payment.model";
 import { UserPlan } from "../../../models/user-plan.model";
 
-export class PaymentService {
-  static async getAll(): Promise<any[]> {
+export class UserPlanService {
+  static async getAll() {
     try {
       const payments = await UserPlan.find()
         .populate(["userId", "planId"])
@@ -16,6 +15,7 @@ export class PaymentService {
       return filteredPayments?.map((payment) => {
         return {
           userId: payment.userId?._id as unknown as string,
+          from: (payment.userId as any)?.from,
           username:
             (payment.userId as any)?.username || (payment.userId as any)?.name,
           plan: (payment.planId as any)?.title,
@@ -26,7 +26,16 @@ export class PaymentService {
       });
     } catch (err) {
       console.error("PaymentServiceError: couldn't get payments, ", err);
-      throw new Error();
+    }
+  }
+
+  static async deleteUserPlan(userPlanId: string) {
+    try {
+      await UserPlan.findByIdAndDelete(userPlanId);
+
+      return true;
+    } catch (err) {
+      console.error("PaymentServiceError: couldn't delete payment, ", err);
     }
   }
 }

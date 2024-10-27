@@ -6,7 +6,7 @@ import { MessageRouter } from "./modules/messages/message.routes";
 import { authMiddleware } from "./commons/middlewares/auth.middleware";
 import { join } from "node:path";
 import { AuthRouter } from "./modules/auth/auth.route";
-import { PaymentsRouter } from "./modules/payments/payments.routes";
+import { UserPlanRouter } from "./modules/user-plans/user-plan.routes";
 
 export const app = express();
 
@@ -24,4 +24,4 @@ app.use("/users", UsersRouter);
 
 app.use("/messages", MessageRouter);
 
-app.use("/payments", PaymentsRouter);
+app.use("/user-plans", UserPlanRouter);
