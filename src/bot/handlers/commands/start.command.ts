@@ -5,6 +5,9 @@ import { showLanguageMenu } from "./language.command";
 export async function handleStart(ctx: MyContext) {
   ctx.session.onStart = true;
   const from = ctx?.match?.toString()?.split("from")[1];
+  const chat = await ctx.getChat();
+  const userBirthday = chat?.birthdate;
+
 
   const user = await User.findOne({ telegramId: ctx.from!.id.toString() });
   if (!user) {
@@ -13,6 +16,7 @@ export async function handleStart(ctx: MyContext) {
       name: ctx.from!.first_name,
       username: ctx.from?.username,
       from: from, // From where this user is coming...
+      birthdate: { day: userBirthday?.day, month: userBirthday?.month },
     });
     await newUser.save();
     ctx.session.isNewUser = true;
