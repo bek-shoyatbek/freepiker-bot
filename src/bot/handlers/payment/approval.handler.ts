@@ -30,6 +30,15 @@ export const paymentApprovalHandler = async (ctx: MyContext) => {
     return ctx.answerCallbackQuery("User not found");
   }
 
+  const from = user?.from;
+
+  const fromUser = await User.findOne({ telegramId: from });
+
+  if (fromUser) {
+    fromUser.freeTrialCount++;
+    await fromUser.save();
+  }
+
   await ctx.answerCallbackQuery("✅");
 
   const userChatId = user.telegramId;
