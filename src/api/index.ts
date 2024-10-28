@@ -16,6 +16,7 @@ app.use(cors({ origin: "*" }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(join(process.cwd(), "admin-ui")));
 
+
 app.use("/auth", AuthRouter);
 
 app.use("*", authMiddleware as unknown as RequestHandler);

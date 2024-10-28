@@ -18,6 +18,11 @@ MessageRouter.post(
   MessageController.createMessage as unknown as RequestHandler,
 );
 
+MessageRouter.get(
+  "/:messageId/sent-analytics",
+  MessageController.getMessageSentAnalytics as unknown as RequestHandler,
+);
+
 MessageRouter.put(
   "/:messageId",
   MessageController.updateByMessageById as unknown as RequestHandler,
@@ -27,3 +32,4 @@ MessageRouter.delete(
   "/:messageId",
   MessageController.deleteMessageById as unknown as RequestHandler,
 );
+

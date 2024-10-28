@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { MessageService } from "./message.service";
+import { isValidObjectId } from "mongoose";
 
 export class MessageController {
   static async sendMessage(req: Request, res: Response) {
@@ -89,6 +90,23 @@ export class MessageController {
     return res.status(200).json({
       message: "Messages deleted",
       data: deleteResult,
+    });
+  }
+
+  static async getMessageSentAnalytics(req: Request, res: Response) {
+    const messageId = req.params["messageId"];
+
+
+    if (!messageId || !isValidObjectId(messageId)) {
+      return res.status(400).json({
+        message: "Message id is invalid!",
+        data: [],
+      });
+    }
+    const result = await MessageService.getDeliveryAnalytics(messageId);
+    return res.status(200).json({
+      message: "Message sent analytics fetched successfully",
+      data: result,
     });
   }
 }
