@@ -16,6 +16,7 @@ async function main() {
       { command: "/start", description: "Start bot" },
       { command: "/stop", description: "Stop bot" },
       { command: "/language", description: "Set language" },
+      { command: "/referal", description: "Get referal link" },
     ]);
 
     const botInfo = await bot.api.getMe();

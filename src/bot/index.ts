@@ -26,6 +26,7 @@ import { freepikPremiumFilter } from "./middlewares/url-filter.middleware";
 import { languageMenu } from "./generators/keyboards/menu/language.menu";
 import { checkPlanExpiry } from "./middlewares/check-plan-expiry.middleware";
 import { autoRetry } from "@grammyjs/auto-retry";
+import { onReferalCommand } from "./handlers/commands/referal.command";
 
 const botToken = verifyToken(configs.BOT_TOKEN);
 
@@ -46,6 +47,8 @@ bot.command("start", handleStart);
 bot.command("language", async (ctx) => {
   await showLanguageMenu(ctx);
 });
+
+bot.command("referal", onReferalCommand);
 
 bot.on("message:photo", getPaymentChequeHandler);
 
