@@ -26,11 +26,10 @@ export const mySubsHandler = async (ctx: MyContext) => {
   const plan = userPlan[userPlan.length - 1].planId as unknown as IPlan;
   await ctx.reply(
     `${i18n[ctx.session.lang].currentPlan(plan.title)}
-${localize("dailyDownloadText", ctx.session.lang)} ${user.dailyRequestsCount}/${
-      plan.dailyRequestCount
+${localize("dailyDownloadText", ctx.session.lang)} ${user.dailyRequestsCount}/${plan.dailyRequestCount
     }
 ${i18n[ctx.session.lang].expiresOn(
-  userPlan[userPlan.length - 1].endDate.toDateString()
-)}`
+      userPlan[userPlan.length - 1].endDate.toDateString()
+    )}`
   );
 };
