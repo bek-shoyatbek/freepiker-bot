@@ -35,7 +35,7 @@ export const paymentApprovalHandler = async (ctx: MyContext) => {
   const fromUser = await User.findOne({ telegramId: from });
 
   if (fromUser) {
-    fromUser.freeTrialCount++;
+    fromUser.freeTrialCount += 20; // Add 10 free trials
     await fromUser.save();
   }
 
