@@ -26,13 +26,13 @@ Premium contentlar: https://t.me/freepiker24
 
 Biznig asosiy telegram bot: https://t.me/freepiker24bot`,
     chooseTariff: "Tarifni tanlang: 📦",
-    plans: `Basic - 10 000 so‘m / oy
+    plans: `Basic - 19 000 so‘m / oy
 🔹 Har kuni 5 ta fayl yuklab olish imkoniyati.
 
-Standart - 15 000 so‘m / oy (Eng afzal ko'rilgani)
+Standart - 29 000 so‘m / oy (Eng afzal ko'rilgani)
 🔹 Har kuni 10 ta fayl yuklab olish imkoniyati.
 
-Premium - 20 000 so‘m / oy
+Premium - 39 000 so‘m / oy
 🔹 Har kuni 20 ta fayl yuklab olish imkoniyati`,
     tariffConfirmation: (plan: string) => `Siz ${plan} tarifini tanladingiz:`,
     price: (price: number) => `Narx: ${price}`,
@@ -105,13 +105,13 @@ Our telegram bot: https://t.me/freepiker24bot`,
     chooseTariff: "Choose tariff: 📦",
     plans: `Choose tariff: 📦
 
-Basic- 10 000 sum / month
+Basic - 19 000 sum / month
 🔹 Ability to download 5 files every day.
 
-Standard- 15 000 sum / month (most preferred)
+Standard- 29 000 sum / month (most preferred)
 🔹 Ability to download 10 files every day.
 
-Premium- 20 000 sum / month
+Premium- 39 000 sum / month
 🔹 20 file downloads every day`,
     tariffConfirmation: (plan: string) => `You chose the ${plan}:`,
     price: (price: number) => `Price: ${price}`,
@@ -184,13 +184,13 @@ Congratulations! 🎉`,
 Наш телеграм-бот: https://t.me/freepiker24bot`,
     chooseTariff: "Выберите тариф: 📦",
     cancelPurchase: "Покупка отменена",
-    plans: `Basic- 10 000 сум / месяц
+    plans: `Basic- 19 000 сум / месяц
 ✔️ Возможность загрузки 5 файлов каждый день.
 
-Стандарт- 15 000 сум / месяц (наиболее предпочтительный)
+Стандарт- 29 000 сум / месяц (наиболее предпочтительный)
 ✔️ Возможность загрузки 10 файлов каждый день.
 
-Премиум- 20 000 сум / месяц
+Премиум- 39 000 сум / месяц
 ✔️ Возможность загрузки 20 файлов каждый день`,
     tariffConfirmation: (plan: string) => `Вы выбрали ${plan} тариф:`,
     price: (price: number) => `Цена: ${price}`,
