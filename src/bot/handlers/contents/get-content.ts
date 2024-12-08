@@ -7,6 +7,7 @@ import {generateGroupNotificationMessage} from "../../generators/notifications/g
 import {ContentNotificationManager} from "../../api/notifications/content-notification.service";
 import {freepikService} from "../../../services/freepik-api";
 import {NotifyMe} from "../../api/notifications/notify-me";
+import {updateUserRequestCount, validateUser} from "../../helpers/requests";
 
 export async function getContentByLinkHandler(ctx: MyContext) {
     const processingMessage = await ctx.reply(
@@ -33,7 +34,7 @@ export async function getContentByLinkHandler(ctx: MyContext) {
 
         if (!resourceId) {
             console.log("resourceId couldn't extracted from the link");
-            return ctx.reply("Sorry internal error occured!");
+            return ctx.reply("Sorry internal error occurred!");
         }
         const resource = await freepikService.downloadResource(resourceId);
 
@@ -53,6 +54,14 @@ export async function getContentByLinkHandler(ctx: MyContext) {
         message,
         {parse_mode: "HTML"},
     );
+
+    const user = await validateUser(ctx);
+
+    if (!user) {
+        return ctx.reply("User not found. Please use /start to register.");
+    }
+
+    await updateUserRequestCount(user);
 
     const content: Content = {
         pageLink: linkToDownload,

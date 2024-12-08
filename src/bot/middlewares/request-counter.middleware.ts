@@ -19,7 +19,6 @@ export async function trackRequest(ctx: MyContext, next: NextFunction) {
             return;
         }
 
-        await updateUserRequestCount(user);
         await next();
     } catch (error) {
         console.error('Error in trackRequest middleware:', error);
