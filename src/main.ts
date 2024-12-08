@@ -1,39 +1,33 @@
-import { app } from "./api";
+import {app} from "./api";
 import bot from "./bot";
 import configs from "./configs";
-import { connectDB } from "./utils/database";
+import {connectDB, setBotCommands} from "./utils";
 
 async function main() {
-  try {
-    await connectDB();
+    try {
+        await connectDB();
 
-    // Api started
-    app.listen(configs.PORT, () => {
-      console.log("Api server is running on port: ", configs.PORT);
-    });
+        // Api started
+        app.listen(configs.PORT, () => {
+            console.log("Api server is running on port: ", configs.PORT);
+        });
 
-    await bot.api.setMyCommands([
-      { command: "/start", description: "Start bot" },
-      { command: "/stop", description: "Stop bot" },
-      { command: "/language", description: "Set language" },
-      { command: "/referal", description: "Get referal link" },
-    ]);
+        await setBotCommands()
+        const botInfo = await bot.api.getMe();
+        console.log(`Bot info: ${botInfo.first_name} (@${botInfo.username})`);
 
-    const botInfo = await bot.api.getMe();
-    console.log(`Bot info: ${botInfo.first_name} (@${botInfo.username})`);
-
-    await bot.start({
-      onStart: (botInfo: any) => {
-        console.log(`Bot @${botInfo.username} started!`);
-      },
-      allowed_updates: ["message", "callback_query"],
-      drop_pending_updates: true,
-    });
-  } catch (err) {
-    console.error("StartupError: ", err);
-  }
+        await bot.start({
+            onStart: (botInfo: any) => {
+                console.log(`Bot @${botInfo.username} started!`);
+            },
+            allowed_updates: ["message", "callback_query"],
+            drop_pending_updates: true,
+        });
+    } catch (err) {
+        console.error("StartupError: ", err);
+    }
 }
 
 (async () => {
-  await main();
+    await main();
 })();
