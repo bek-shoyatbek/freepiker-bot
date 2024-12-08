@@ -1,7 +1,7 @@
 import {NextFunction} from "grammy";
 import {MyContext} from "../types/context";
 import {generateMainKeyboard} from "../generators/keyboards/main.keyboard";
-import {handleDailyReset, updateUserRequestCount, validateUser, validateUserAccess} from "../helpers/requests";
+import {handleDailyReset, validateUser, validateUserAccess} from "../helpers/requests";
 
 
 export async function trackRequest(ctx: MyContext, next: NextFunction) {
