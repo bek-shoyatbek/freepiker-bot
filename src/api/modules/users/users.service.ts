@@ -1,13 +1,11 @@
-import { Payment } from "../../../models/payment.model";
-import { UserPlan } from "../../../models/user-plan.model";
-import { IUser, User } from "../../../models/user.model";
+import {Payment} from "../../../models/payment.model";
+import {UserPlan} from "../../../models/user-plan.model";
+import {IUser, User} from "../../../models/user.model";
 
 export class UserService {
   static async getAll(): Promise<IUser[]> {
     try {
-      const users = await User.find();
-
-      return users;
+      return await User.find();
     } catch (err) {
       console.error("UserServiceError: couldn't get users, ", err);
       throw new Error();
